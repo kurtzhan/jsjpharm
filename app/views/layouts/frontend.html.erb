@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jsjpharm</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav id="topNav">
+	<div id="topNavWrap">
+		<div id="ECS_MEMBERZONE"><div id="append_parent"></div>
+ 
+   <label>
+  您好，欢迎光临本店！
+  <a href="user.php?act=login">请登录</a>  
+  <a href="user.php?act=register" target="_blank" style="margin-left:3px;">免费注册</a>
+   </label>
+</div>
+		<ul id="topNavRight">
+			<li><a href="" target="_blank" rel="nofollow">我的订单</a>&nbsp;&nbsp;|</li>
+			<li><div class="mcDropMenuBox">
+				<a class="topNavHolder" target="_blank" href="" rel="nofollow">个人中心<i></i></a><b class="holderLine">|</b>
+				<div class="mcDropMenu">
+					<a class="clearfix" target="_blank" href="user.php?act=collection_list" rel="nofollow">我的收藏</a>
+					<a class="clearfix" target="_blank" href="user.php?act=message_list" rel="nofollow">我的留言</a>
+					<a class="clearfix" target="_blank" href="user.php?act=order_list" rel="nofollow">我的订单</a>
+					<a class="clearfix" target="_blank" href="user.php?act=bonus" rel="nofollow">我的红包</a>
+				</div>
+			</div></li> 
+            <li><a target="_blank" href="">帮助</a>&nbsp;&nbsp;|</li>
+            <li><a id="addFavBtn" href="javascript:;" target="_blank">收藏本站</a>&nbsp;&nbsp;|</li>						          
+			<li><div class="mcDropMenuBox focusNE">
+				<a class="topNavHolder" target="_blank" href="" rel="nofollow">关注我们<i></i></a>
+				<div class="mcDropMenu"><i class="line"></i>
+					<a class="clearfix" target="_blank" href="" rel="nofollow"><em class="xlwb"></em><span>新浪微博</span></a>
+					<a class="clearfix" target="_blank" href="" rel="nofollow"><em class="wywb"></em><span>网易微博</span></a>
+					<a class="clearfix" target="_blank" href="" rel="nofollow"><em class="txwb"></em><span>腾讯微博</span></a>
+				</div>
+			</div></li>            
+		</ul>
+	</div>
+</nav>
+<header id="docHead" class="">
+  <div class="fixedBg"></div>
+  <div id="docHeadWrap">
+  <div class="navCategorys hide">
+  <h2> 全部商品分类<span class="cusp"></span></h2>
+  <ul class="categorys clearfix" id="js_navcategorys" style="display:none">
+             <li class="clearfix" name="cat_2">
+     <h3 class="type1"><a class="a_type" href="category.php?id=2">基础</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=33" class="highLight0">改善睡眠</a></span>
+                                  <span><a href="category.php?id=35" class="highLight0">增强免疫</a></span>
+                                                                                                                                                                                                                                                 </div>
+     </li>
+                  <li class="clearfix" name="cat_3">
+     <h3 class="type2"><a class="a_type" href="category.php?id=3">女士</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=36" class="highLight0">丰胸美胸</a></span>
+                                  <span><a href="category.php?id=37" class="highLight0">补血养气</a></span>
+                                                                                                                                                                                           </div>
+     </li>
+                  <li class="clearfix" name="cat_4">
+     <h3 class="type3"><a class="a_type" href="category.php?id=4">男士</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=29" class="highLight0">性腺养护</a></span>
+                                  <span><a href="category.php?id=31" class="highLight0">补肾健体</a></span>
+                                                                                                                                                                                                             </div>
+     </li>
+                  <li class="clearfix" name="cat_7">
+     <h3 class="type4"><a class="a_type" href="category.php?id=7">老人</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=19" class="highLight0">溶解血栓</a></span>
+                                  <span><a href="category.php?id=20" class="highLight0">调节三高</a></span>
+                                                                                                                                     </div>
+     </li>
+                  <li class="clearfix" name="cat_8">
+     <h3 class="type5"><a class="a_type" href="category.php?id=8">儿童</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=16" class="highLight0">均衡营养</a></span>
+                                  <span><a href="category.php?id=17" class="highLight0">配方奶粉</a></span>
+                                                                                                                                     </div>
+     </li>
+                  <li class="clearfix" name="cat_9">
+     <h3 class="type6"><a class="a_type" href="category.php?id=9">食品</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=22" class="highLight0">养生茶</a></span>
+                                  <span><a href="category.php?id=25" class="highLight0">茶疗冲调</a></span>
+                                                                                                                                     </div>
+     </li>
+                  <li class="clearfix" name="cat_11">
+     <h3 class="type7"><a class="a_type" href="category.php?id=11">保健</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=24" class="highLight0">蛋白质粉</a></span>
+                                  <span><a href="category.php?id=26" class="highLight0">补血益气</a></span>
+                                                             </div>
+     </li>
+                  <li class="clearfix" name="cat_14">
+     <h3 class="type8"><a class="a_type" href="category.php?id=14">成人</a></h3>
+		<div class="subcategoryWrap clearfix">
+                          <span><a href="category.php?id=47" class="highLight0">避孕安全</a></span>
+                                  <span><a href="category.php?id=48" class="highLight0">男用器具</a></span>
+                                                                                                                                                                         </div>
+     </li>
+             </ul>
+  <div id="navsub_categorys" class="subCategorys">
+		<ul>
+        		<li id="cat_2">
+				<h3><a href="javascript:;" class=" dis">基础功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=33" class="highLight0">改善睡眠</a></span>
+                					<span><a href="category.php?id=35" class="highLight0">增强免疫</a></span>
+                					<span><a href="category.php?id=101" class="highLight0">补血益气</a></span>
+                					<span><a href="category.php?id=102" class="highLight0">营养均衡</a></span>
+                					<span><a href="category.php?id=34" class="highLight0">减缓疲劳</a></span>
+                					<span><a href="category.php?id=51" class="highLight0">调节肠胃</a></span>
+                					<span><a href="category.php?id=60" class="highLight0">改善记忆</a></span>
+                					<span><a href="category.php?id=61" class="highLight0">护眼明目</a></span>
+                					<span><a href="category.php?id=62" class="highLight0">维生素类</a></span>
+                					<span><a href="category.php?id=63" class="highLight0">钙铁锌硒</a></span>
+                					<span><a href="category.php?id=64" class="highLight0">蛋白质类</a></span>
+                					<span><a href="category.php?id=65" class="highLight0">褪黑素</a></span>
+                					<span><a href="category.php?id=66" class="highLight0">膳食纤维</a></span>
+                					<span><a href="category.php?id=67" class="highLight0">其他</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_3">
+				<h3><a href="javascript:;" class=" dis">女士功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=36" class="highLight0">丰胸美胸</a></span>
+                					<span><a href="category.php?id=37" class="highLight0">补血养气</a></span>
+                					<span><a href="category.php?id=38" class="highLight0">美白祛斑</a></span>
+                					<span><a href="category.php?id=54" class="highLight0">减肥瘦身</a></span>
+                					<span><a href="category.php?id=55" class="highLight0">排毒养颜</a></span>
+                					<span><a href="category.php?id=70" class="highLight0">孕妇叶酸</a></span>
+                					<span><a href="category.php?id=71" class="highLight0">胶原蛋白</a></span>
+                					<span><a href="category.php?id=72" class="highLight0">左旋肉碱</a></span>
+                					<span><a href="category.php?id=73" class="highLight0">减肥</a></span>
+                					<span><a href="category.php?id=74" class="highLight0">延缓衰老</a></span>
+                					<span><a href="category.php?id=75" class="highLight0">月经不调</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_4">
+				<h3><a href="javascript:;" class=" dis">男士功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=29" class="highLight0">性腺养护</a></span>
+                					<span><a href="category.php?id=31" class="highLight0">补肾健体</a></span>
+                					<span><a href="category.php?id=32" class="highLight0">解酒护肝</a></span>
+                					<span><a href="category.php?id=69" class="highLight0">健身塑肌</a></span>
+                					<span><a href="category.php?id=76" class="highLight0">玛卡</a></span>
+                					<span><a href="category.php?id=77" class="highLight0">袋鼠精</a></span>
+                					<span><a href="category.php?id=78" class="highLight0">补肾壮阳</a></span>
+                					<span><a href="category.php?id=79" class="highLight0">蜂王浆</a></span>
+                					<span><a href="category.php?id=80" class="highLight0">延时持久</a></span>
+                					<span><a href="category.php?id=81" class="highLight0">男士维生素</a></span>
+                					<span><a href="category.php?id=82" class="highLight0">番茄红素</a></span>
+                					<span><a href="category.php?id=83" class="highLight0">南瓜子油</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_7">
+				<h3><a href="javascript:;" class=" dis">老人功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=19" class="highLight0">溶解血栓</a></span>
+                					<span><a href="category.php?id=20" class="highLight0">调节三高</a></span>
+                					<span><a href="category.php?id=21" class="highLight0">心脑保健</a></span>
+                					<span><a href="category.php?id=68" class="highLight0">强健骨骼</a></span>
+                					<span><a href="category.php?id=84" class="highLight0">鱼油</a></span>
+                					<span><a href="category.php?id=85" class="highLight0">三高人群</a></span>
+                					<span><a href="category.php?id=86" class="highLight0">卵磷脂</a></span>
+                					<span><a href="category.php?id=87" class="highLight0">老人补钙</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_8">
+				<h3><a href="javascript:;" class=" dis">儿童功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=16" class="highLight0">均衡营养</a></span>
+                					<span><a href="category.php?id=17" class="highLight0">配方奶粉</a></span>
+                					<span><a href="category.php?id=18" class="highLight0">健脑益智</a></span>
+                					<span><a href="category.php?id=56" class="highLight0">增强免疫</a></span>
+                					<span><a href="category.php?id=57" class="highLight0">骨骼发育</a></span>
+                					<span><a href="category.php?id=88" class="highLight0">儿童补钙</a></span>
+                					<span><a href="category.php?id=89" class="highLight0">孩子挑食</a></span>
+                					<span><a href="category.php?id=90" class="highLight0">矿物质</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_9">
+				<h3><a href="javascript:;" class=" dis">食品功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=22" class="highLight0">养生茶</a></span>
+                					<span><a href="category.php?id=25" class="highLight0">茶疗冲调</a></span>
+                					<span><a href="category.php?id=58" class="highLight0">蜂蜜阿胶</a></span>
+                					<span><a href="category.php?id=59" class="highLight0">果干糕点</a></span>
+                					<span><a href="category.php?id=91" class="highLight0">雪蛤</a></span>
+                					<span><a href="category.php?id=92" class="highLight0">同仁堂</a></span>
+                					<span><a href="category.php?id=93" class="highLight0">红枣</a></span>
+                					<span><a href="category.php?id=94" class="highLight0">桃花姬</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_11">
+				<h3><a href="javascript:;" class=" dis">保健功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=24" class="highLight0">蛋白质粉</a></span>
+                					<span><a href="category.php?id=26" class="highLight0">补血益气</a></span>
+                					<span><a href="category.php?id=52" class="highLight0">钙铁锌锡</a></span>
+                					<span><a href="category.php?id=53" class="highLight0">延缓衰老</a></span>
+                				</div>		
+		</li>
+        		<li id="cat_14">
+				<h3><a href="javascript:;" class=" dis">成人功效</a></h3>
+				<div class="subcatWrap">
+                					<span><a href="category.php?id=47" class="highLight0">避孕安全</a></span>
+                					<span><a href="category.php?id=48" class="highLight0">男用器具</a></span>
+                					<span><a href="category.php?id=49" class="highLight0">女用器具</a></span>
+                					<span><a href="category.php?id=50" class="highLight0">情趣助兴</a></span>
+                					<span><a href="category.php?id=95" class="highLight0">延时助举</a></span>
+                					<span><a href="category.php?id=96" class="highLight0">迷情香水</a></span>
+                					<span><a href="category.php?id=97" class="highLight0">超薄顺滑</a></span>
+                					<span><a href="category.php?id=98" class="highLight0">私处护理</a></span>
+                					<span><a href="category.php?id=99" class="highLight0">安全自检</a></span>
+                					<span><a href="category.php?id=100" class="highLight0">杜蕾斯</a></span>
+                				</div>		
+		</li>
+        		</ul>
+	</div>
+  </div>
+	<a hidefocus="true" title="网易保健品" class="logoLnk" href="index.php"></a>
+    <div class="topSearchBox1 ownHotKeys1">
+    <form id="searchForm" name="searchForm" action="search.php" method="get" onsubmit="return checkSearchForm()">
+    <input id="keyword" name="keywords" class="sTxt c_999" type="text" value="">
+    <input class="sBtn1" type="submit" value="">
+    </form>
+		<ul class="suggestBox"></ul>
+		<div id="topHotKeys"><label>热门搜索：</label>
+           		   		<a href="search.php?keywords=%E5%87%8F%E8%82%A5">减肥</a>
+          		<a href="search.php?keywords=%E6%B1%A4%E8%87%A3%E5%80%8D%E5%81%A5">汤臣倍健</a>
+          		<a href="search.php?keywords=%E5%8F%B6%E9%85%B8">叶酸</a>
+          		<a href="search.php?keywords=%E8%A7%A3%E6%95%91%E6%8A%A4%E8%82%9D">解救护肝</a>
+          		<a href="search.php?keywords=%E8%A1%A5%E8%82%BE">补肾</a>
+                      </div>
+    </div>
+	<div id="ECS_CARTINFO" class="qq_jiesuan"><div class="shop"> <a class="miniCartBar"><span class="miniCartNum num0">0</span></a>
+</div>
+<div class="miniCartCon jiesuan_t">
+  <div class="cartNone">购物车是空的，赶快选购吧！<br>
+    如果已添加商品，请<a href="user.php?act=login" name="js_login">登录</a>查看</div>
+</div>
+ 
+<script type="text/javascript">
+function deleteCartGoods(rec_id)
+{
+Ajax.call('delete_cart_goods.php', 'id='+rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
+}
+
+/**
+ * 接收返回的信息
+ */
+function deleteCartGoodsResponse(res)
+{
+  if (res.error)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+      document.getElementById('ECS_CARTINFO').innerHTML = res.content;
+  }
+}
+</script> 
+</div>                                         
+  </div>
+</header>
+<nav id="topTabBox" style="margin-top: 0px;">
+	<div id="topTab">
+    	<div id="categorysBox" class="">
+        	<h2>
+             全部商品分类
+            </h2>
+        </div>
+        
+		<ul id="funcTab">
+			<li class="active"><a href="index.php">首页</a></li>
+                                    <li class="   ">
+               <a href="brand.php">品牌专区</a></li>
+                           
+                                    <li class="   ">
+               <a href="category.php?id=3">女士保养</a></li>
+                           
+                                    <li class="   ">
+               <a href="message.php">留言板</a></li>
+                           
+                                    <li class="   ">
+               <a href="quotation.php" target="_blank">报价单</a></li>
+                           
+                                    <li class=" lastLi  ">
+               <a href="group_buy.php" target="_blank">团购商品</a></li>
+                           
+               		</ul>
+	</div>
+    
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
