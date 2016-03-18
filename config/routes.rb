@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   scope '/backend' do
     resources :categories
+    resources :products
+    get '/' => 'home#index', as: :backend_root
   end
   
   namespace :frontend do
