@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  scope module: 'frontend', as: 'frontend' do
+    resources :categories, only: [:show]
+  end
+
+
   devise_for :users
   scope '/backend' do
     resources :categories
