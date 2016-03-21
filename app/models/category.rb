@@ -36,6 +36,10 @@ class Category < ActiveRecord::Base
     return array
   end
 
+  def children
+    Category.where("parent_category_id = #{self.id}")
+  end
+
 private
   def build_category_path(category, array)
   	array.unshift [category.name, category.id]

@@ -1,0 +1,70 @@
+<div class="crumbs"> <div class="crumbs">
+<a class="aHome" href="index.php"></a>&gt;<a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=2">基础</a> <code>&gt;</code> <a href="category.php?id=33">改善睡眠</a> 
+</div> </div>
+<article class="mainWrap clearfix">
+<section class="siderBox"> <dl class="categoryView">
+      <% @category_hash.keys.each do |top_category| %>
+        <dt class="clearfix"><span class="<%= top_category.id == @category.parent_category_id ? 'ctyOff' : 'ctyOn'%>"></span>
+          <%= link_to top_category.name, frontend_category_path(top_category.id) %>
+          <dd style="<%= top_category.id == @category.parent_category_id ? 'display:block' : 'display:none'%>">
+            <% top_category.children.each do |sub_cat| %>
+            <span<%= sub_cat.id == @category.id ? " class=active" : ""%>><%= link_to sub_cat.name, frontend_category_path(sub_cat.id) %></span>
+            <% end %> 
+          </dd>
+        </dt>
+      <% end %>            
+    </dl> 
+ </section>
+ <section class="maincontent">
+    <div class="popularWrap clearfix">
+          <div class="popularPro"> <a class="aImg" target="_blank" href="goods.php?id=51" style="background: none rgb(255, 255, 255);"><img width="110" height="110" border="0" title="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" src="images/201403/thumb_img/51_thumb_G_1395047537284.jpg" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）"></a>
+            <p class="introduceTit">四合一配方，效果更佳</p>
+            <p class="productTit"><a class="aTit" target="_blank" title="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" href="goods.php?id=51">GNC健安喜深海鱼油软胶囊（全网销量NO.1）</a></p>
+            <p class="productPrice"><strong>41元</strong></p>
+            <p class="productCommt"><a target="_blank" href="goods.php?id=51">已有6条评价</a></p>
+          </div>
+          <p class="popularReason"><em>推荐理由：</em><br>
+            <span class="txt">适用于需要减肥瘦身的人群，左旋搭配魔芋，燃脂、清脂双效合一，尤其适合喜欢食用肉类的肥胖者。</span><span class="cusp"></span><span class="hotIcon"></span></p>
+    </div>
+    <div class="mt10">
+    </div>
+    <div class="attrWrap clearfix"> 
+      
+      <div class="attrSelected clearfix" id="JS_fliterTable"> 
+        <script type="text/javascript">
+                        _fliterShowNum = 3;
+                    </script> 
+                <div class="attrTit">已选中条件：</div>
+        <ul class="clearfix">
+          <li><%= link_to "<strong>#{@category.name}</strong>".html_safe, frontend_category_path(@category.parent_category_id), :class => "pass_hand" %></li>
+          <script>
+                                function tiaozhuan_brand(){
+                                    this.location.href='category.php?id=33&amp;price_min=0&amp;price_max=0';
+                                    }
+                                </script> 
+                  </ul>
+      </div>
+      
+      <div class="attrGroup clearfix">
+        <div class="attrBrand first_attrBrand clearfix">
+          <div class="attrTit">功效：</div>
+          <ul class="brandList clearfix" id="typeAdapt">
+                        <% @category_hash.keys.select{|k| k.id == @category.parent_category_id}[0].children.each do |c| %>
+                          <li proid="Array"><%= link_to c.name, frontend_category_path(c.id) %></li>
+                        <% end %>
+                      </ul>
+        </div>
+        <div class="attrBrand clearfix">
+          <div class="attrTit">品牌：</div>
+          <ul class="brandList clearfix" id="typeAdapt">
+                        <li proid="3"><a rel="nofollow" hidefocus="true" target="_self" href="category.php?id=33&amp;price_min=0&amp;price_max=0" tppabs="">全部</a></li>
+                        <li proid="4"><a rel="nofollow" hidefocus="true" target="_self" href="category.php?id=33&amp;brand=3&amp;price_min=0&amp;price_max=0" tppabs="">Natrol</a></li>
+                        <li proid="6"><a rel="nofollow" hidefocus="true" target="_self" href="category.php?id=33&amp;brand=4&amp;price_min=0&amp;price_max=0" tppabs="">乐力</a></li>
+                        <li proid=""><a rel="nofollow" hidefocus="true" target="_self" href="category.php?id=33&amp;brand=6&amp;price_min=0&amp;price_max=0" tppabs="">绿A</a></li>
+                      </ul>
+        </div>
+      </div>
+    </div>
+ </section>
+</article>
+<script>Core && Core.quickInit && Core.quickInit();</script>

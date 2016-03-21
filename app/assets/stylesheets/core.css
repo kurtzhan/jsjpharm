@@ -1155,7 +1155,7 @@ li#loginCtrl {
 }
 .navCategorys h2 .cusp, #categorysBox h2 .cusp {
 	position: absolute;
-	background: url("../images/icons.png-bdf27a1588c4a188e1b6e8e88ee77613.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -297px no-repeat;
+	background: url("/assets/icons.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -297px no-repeat;
 	width: 23px;
 	height: 23px;
 	top: 10px;
@@ -1891,7 +1891,7 @@ a:hover {
 }
 .crumbs .aHome {
 	display: inline-block;
-	background: url("../images/icons.png-bdf27a1588c4a188e1b6e8e88ee77613.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -46px no-repeat;
+	background: url("/assets/icons.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -46px no-repeat;
 	width: 16px;
 	height: 16px;
 	float: left;
@@ -2165,7 +2165,7 @@ a:hover {
 }
 .attrSelected li a {
 	color: #464c59;
-	background: url("../images/product/proIcons.png-c63ad5bfc12dc6d2e7286c2fe4b4b19f.png")/*tpa=http://pimg1.126.net/health/images/product/proIcons.png?c63ad5bfc12dc6d2e7286c2fe4b4b19f*/ right -435px no-repeat;
+	background: url("/assets/proIcons.png")/*tpa=http://pimg1.126.net/health/images/product/proIcons.png?c63ad5bfc12dc6d2e7286c2fe4b4b19f*/ right -435px no-repeat;
 	display: inline-block;
 	padding-right: 10px
 }

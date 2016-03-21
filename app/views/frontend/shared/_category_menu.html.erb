@@ -1,0 +1,30 @@
+  <ul class="categorys clearfix" id="js_categorys"<%= display == false ? " style='display:none'".html_safe : ""%>>
+     <% @category_hash.keys.each_with_index do |top_category, index| %>
+    <li class="clearfix" name="cat_<%= top_category.id %>">
+     <h3 class="type<%= index + 1 %>">
+     <%= link_to top_category.name, frontend_category_path(top_category.id), :class=>"a_type" %>
+     </h3>
+    <div class="subcategoryWrap clearfix">
+      <% @category_hash[top_category][0..1].each do |sub_hash| %>
+        <span>
+          <%= link_to sub_hash.keys.first.name, frontend_category_path(sub_hash.keys.first.id), :class=>"highLight0" %>
+        </span>
+      <% end %>
+      </div>                                                                                                                                                          
+     </li>
+      <% end %>
+  </ul>
+  <div id="sub_categorys" class="subCategorys" style="left: 578.5px; top: 318px; display: none;">
+    <ul>
+    <% @category_hash.keys.each_with_index do |top_category, index| %>
+            <li id="cat_<%= top_category.id %>" style="display: none;">
+        <h3><a href="javascript:;" class=" dis"><%= top_category.name %>功效</a></h3>
+        <div class="subcatWrap">
+          <% @category_hash[top_category].each do |sub_hash| %>
+            <span><%= link_to sub_hash.keys.first.name, frontend_category_path(sub_hash.keys.first.id), :class=>"highLight0" %></span>
+          <% end %>
+                        </div>    
+    </li>
+    <% end %>
+            </ul>
+  </div>

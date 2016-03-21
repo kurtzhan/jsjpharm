@@ -1,0 +1,21 @@
+<div class="pindao_body">
+<div id="position"> <div class="crumbs">
+<a class="aHome" href="index.php"></a>&gt;<a href=".">首页</a> <code>&gt;</code> <%= link_to @category.name, frontend_category_path(@category.id) %>
+</div>
+</div>
+</div>
+<div class="clear" style="height:5px; line-height:5px;"></div>
+<div class="pindao_box1 clearfix">
+<div class="nav_classify" style="background:#F8F1F1">
+      <div class="title_nc">
+        <h1><%= @category.name %></h1>
+      </div>
+      <ul>
+          <% @category.children.each do |c| %>
+            <li>
+              <%= link_to "<h2>#{c.name}</h2>".html_safe, frontend_category_path(c.id), :target => "_blank" %>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+</div>

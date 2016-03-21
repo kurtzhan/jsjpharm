@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jquery18
+//= require jquery_json
 //= require common
 //= require easyCore
 //= require index
 //= require index2
+//= require products

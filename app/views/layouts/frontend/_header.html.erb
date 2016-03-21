@@ -1,0 +1,83 @@
+  <nav id="topNav">
+  <div id="topNavWrap">
+    <div id="ECS_MEMBERZONE"><div id="append_parent"></div>
+ 
+   <label>
+  您好，欢迎光临本店！
+  <a href="user.php?act=login">请登录</a>  
+  <a href="user.php?act=register" target="_blank" style="margin-left:3px;">免费注册</a>
+   </label>
+</div>
+    <ul id="topNavRight">
+      <li><a href="" target="_blank" rel="nofollow">我的订单</a>&nbsp;&nbsp;|</li>
+      <li><div class="mcDropMenuBox">
+        <a class="topNavHolder" target="_blank" href="" rel="nofollow">个人中心<i></i></a><b class="holderLine">|</b>
+        <div class="mcDropMenu">
+          <a class="clearfix" target="_blank" href="user.php?act=collection_list" rel="nofollow">我的收藏</a>
+          <a class="clearfix" target="_blank" href="user.php?act=message_list" rel="nofollow">我的留言</a>
+          <a class="clearfix" target="_blank" href="user.php?act=order_list" rel="nofollow">我的订单</a>
+          <a class="clearfix" target="_blank" href="user.php?act=bonus" rel="nofollow">我的红包</a>
+        </div>
+      </div></li> 
+            <li><a target="_blank" href="">帮助</a>&nbsp;&nbsp;|</li>
+            <li><a id="addFavBtn" href="javascript:;" target="_blank">收藏本站</a>&nbsp;&nbsp;|</li>                      
+      <li><div class="mcDropMenuBox focusNE">
+        <a class="topNavHolder" target="_blank" href="" rel="nofollow">关注我们<i></i></a>
+        <div class="mcDropMenu"><i class="line"></i>
+          <a class="clearfix" target="_blank" href="" rel="nofollow"><em class="xlwb"></em><span>新浪微博</span></a>
+          <a class="clearfix" target="_blank" href="" rel="nofollow"><em class="wywb"></em><span>网易微博</span></a>
+          <a class="clearfix" target="_blank" href="" rel="nofollow"><em class="txwb"></em><span>腾讯微博</span></a>
+        </div>
+      </div></li>            
+    </ul>
+  </div>
+</nav>
+<header id="docHead" class="">
+  <div class="fixedBg"></div>
+  <div id="docHeadWrap">
+  <%= link_to "", root_path, :class => "logoLnk" %>
+    <div class="topSearchBox1 ownHotKeys1">
+    <form id="searchForm" name="searchForm" action="search.php" method="get" onsubmit="return checkSearchForm()">
+    <input id="keyword" name="keywords" class="sTxt c_999" type="text" value="">
+    <input class="sBtn1" type="submit" value="">
+    </form>
+    <ul class="suggestBox"></ul>
+    <div id="topHotKeys"><label>热门搜索：</label>
+                    <a href="search.php?keywords=%E5%87%8F%E8%82%A5">减肥</a>
+              <a href="search.php?keywords=%E6%B1%A4%E8%87%A3%E5%80%8D%E5%81%A5">汤臣倍健</a>
+              <a href="search.php?keywords=%E5%8F%B6%E9%85%B8">叶酸</a>
+              <a href="search.php?keywords=%E8%A7%A3%E6%95%91%E6%8A%A4%E8%82%9D">解救护肝</a>
+              <a href="search.php?keywords=%E8%A1%A5%E8%82%BE">补肾</a>
+                      </div>
+    </div>
+  <div id="ECS_CARTINFO" class="qq_jiesuan"><div class="shop"> <a class="miniCartBar"><span class="miniCartNum num0">0</span></a>
+</div>
+<div class="miniCartCon jiesuan_t">
+  <div class="cartNone">购物车是空的，赶快选购吧！<br>
+    如果已添加商品，请<a href="user.php?act=login" name="js_login">登录</a>查看</div>
+</div>
+ 
+<script type="text/javascript">
+function deleteCartGoods(rec_id)
+{
+Ajax.call('delete_cart_goods.php', 'id='+rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
+}
+
+/**
+ * 接收返回的信息
+ */
+function deleteCartGoodsResponse(res)
+{
+  if (res.error)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+      document.getElementById('ECS_CARTINFO').innerHTML = res.content;
+  }
+}
+</script> 
+</div>                                         
+  </div>
+</header>
