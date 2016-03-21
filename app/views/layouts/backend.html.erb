@@ -306,19 +306,17 @@
                 <li<%= params[:controller] == "products" && params[:action] == "index" ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 商品列表'.html_safe, products_path %></li>
                 <li<%= params[:controller] == "products" && params[:action] == "new" ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 新建商品'.html_safe, new_product_path %></li>
                 <li<%= params[:controller] == "categories" && ["index", "new", "edit", "show"].include?(params[:action]) ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 商品分类'.html_safe, categories_path %></li>
+                <li<%= params[:controller] == "brands" && ["index", "new", "edit", "show"].include?(params[:action]) ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 商品品牌'.html_safe, brands_path %></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview<%= ["users"].include?(params[:controller]) ? " active" : ""%>">
               <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Layout Options</span>
-                <span class="label label-primary pull-right">4</span>
+                <i class="fa fa-user"></i>
+                <span>用户管理</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                <li<%= params[:controller] == "users" && params[:action] == "index" ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 用户列表'.html_safe, users_path %></li>
               </ul>
             </li>
             <li>

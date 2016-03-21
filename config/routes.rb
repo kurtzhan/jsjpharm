@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   scope module: 'frontend', as: 'frontend' do
     resources :categories, only: [:show]
   end
-
 
   devise_for :users
   scope '/backend' do
     resources :categories
     resources :products
+    resources :brands
+    resources :users
     get '/' => 'home#index', as: :backend_root
   end
   

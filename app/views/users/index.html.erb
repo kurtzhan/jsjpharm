@@ -1,0 +1,48 @@
+<%= render "shared/content_header"%>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <div class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered table-striped dataTable">
+                  <thead>
+                    <tr role="row">
+                      <th>Email</th>
+                      <th>上次登录IP</th>
+                      <th>上次登录时间</th>
+                      <th>登录次数</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td><%= user.email %></td>
+                      <td><%= user.last_sign_in_ip %></td>
+                      <td><%= user.last_sign_in_at %></td>
+                      <td><%= user.sign_in_count %></td>
+                      <td>
+                        <%= link_to '<i class="fa fa-info"></i>'.html_safe, user, {"data-toggle" => "tooltip", :title=>"查看"} %>
+                        <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_user_path(user), {"data-toggle" => "tooltip", :title=>"编辑"} %>
+                        <%= link_to '<i class="fa fa-remove"></i>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </td>
+                      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+                </table>
+                <%= link_to '新建用户', new_user_path, :class => "btn-primary btn-sm"%>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

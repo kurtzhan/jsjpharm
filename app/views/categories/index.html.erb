@@ -1,14 +1,4 @@
-<section class="content-header">
-  <h1>
-    商品分类
-    <small>advanced tables</small>
-  </h1>
-  <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> 网站管理</a></li>
-    <li><a href="#">商品管理</a></li>
-    <li class="active">商品分类</li>
-  </ol>
-</section>
+<%= render "shared/content_header"%>
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
@@ -45,7 +35,7 @@
                   <% end %>
                 </tbody>
                 </table>
-                <%= link_to 'New Category', new_category_path %>
+                <%= link_to '新建商品分类', new_category_path, :class => "btn-primary btn-sm"%>
               </div>
             </div>
 

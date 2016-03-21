@@ -1,0 +1,721 @@
+.ff_yh {
+	font-family: '微软雅黑'
+}
+.actLabel {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	line-height: 20px;
+	color: #fff;
+	background-color: #ec2b00;
+	margin-left: 3px;
+	font-size: 12px!important;
+	text-align: center
+}
+.crumbs {
+	border-bottom: 0
+}
+.records {
+	border: #eee 1px solid
+}
+.records ul {
+	margin-right: 10px
+}
+.records li {
+	padding: 15px 0;
+	border: 0
+}
+.records li .imgWrap, .records li .imgWrap img {
+	width: 80px;
+	height: 80px
+}
+.records li a, .records li strong {
+	width: 168px;
+	display: block;
+	overflow: hidden;
+	float: none
+}
+.records li strong {
+	font-size: 14px;
+	font-family: Verdana
+}
+.records h3 {
+	width: 203px;
+	font-size: 14px
+}
+.siderBox {
+	float: left;
+	width: 230px
+}
+.maincontent {
+	float: right;
+	width: 960px
+}
+.categoryView {
+	border: #eee 1px solid;
+	border-bottom: 0;
+	background-color: #FFF
+}
+.categoryView dt {
+	border-bottom: #eee 1px solid;
+	height: 26px;
+	background-color: #f7f7f7;
+	width: 218px;
+	padding: 7px 0 0 10px;
+	overflow: hidden;
+	cursor: pointer
+}
+.categoryView dd {
+	border-bottom: #eee 1px solid;
+	padding: 10px 0 10px 20px
+}
+.categoryView dt a {
+	display: inline-block;
+	height: 18px;
+	line-height: 18px;
+	font-size: 14px;
+	color: #333;
+	float: left;
+	font-family: 'microsoft yahei'
+}
+.categoryView dt span {
+	background: url("/assets/proIcons.png") 0 -140px no-repeat;
+	float: left;
+	width: 19px;
+	height: 19px;
+	cursor: pointer
+}
+.categoryView dt span.ctyOn {
+	background-position: 0 -733px
+}
+.categoryView dt span.ctyOff {
+	background-position: 0 -718px
+}
+.categoryView dd span {
+	display: inline-block;
+	width: 65px;
+	height: 22px;
+	margin: 0 3px 3px 0
+}
+.categoryView dd a {
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 5px;
+	color: #333
+}
+.categoryView dd a:link, .categoryView dd a:visited, .categoryView dd a:hover, .categoryView dt a:link, .categoryView dt a:visited, .categoryView dt a:hover {
+	color: #333
+}
+.categoryView .active a, .categoryView .active a:link, .categoryView .active a:visited, .categoryView .active a:hover {
+	color: #fff;
+	background-color: #6ba103;
+	text-decoration: none
+}
+.sideGrayBox {
+	border: #eee 1px solid;
+	width: 228px
+}
+.sideGrayBox .productPrice strong {
+	font-size: 14px
+}
+.sideGrayBox h4 {
+	font-family: 'microsoft yahei';
+	height: 33px;
+	line-height: 36px;
+	background-color: #f7f7f7;
+	color: #333;
+	font-size: 14px;
+	padding-left: 15px;
+	border-bottom: #eee solid 1px
+}
+.sideGrayBox ul {
+	margin: 0 15px
+}
+.sideGrayBox li {
+	padding: 15px 0 10px
+}
+.sideGrayBox .bbNone {
+	border-bottom: 0
+}
+.sideGrayBox .aImg img {
+	background: url("../images/errPro.png-978fa05eeba24f970189a98d0fbc57e2.png")/*tpa=http://pimg1.126.net/health/images/errPro.png?978fa05eeba24f970189a98d0fbc57e2*/ 50% 50% no-repeat
+}
+.userBuyView .aImg {
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	margin: 0 auto;
+	display: block
+}
+.userBuyView p {
+	width: 192px;
+	margin: 0;
+	overflow: hidden
+}
+.userBuyView .productTit, .commentHotView .productTit {
+	height: auto;
+	line-height: 20px
+}
+.sideGrayBox .aTit, .sideGrayBox .aTit:link, .sideGrayBox .aTit:visited {
+	color: #464c59
+}
+.sideGrayBox .aTit:hover {
+	color: #5a8800
+}
+.userBuyView .productPrice, .commentHotView .productPrice {
+	height: 24px;
+	line-height: 22px;
+	margin-top: 2px;
+	color: #ec2b00;
+	font-size: 14px
+}
+.sideGrayBox .subWinnerView {
+	margin: 0 20px
+}
+.subWinnerView li {
+	padding: 20px 0 15px
+}
+.subWinnerView .proImg {
+	text-align: center
+}
+.subWinnerView .productTit {
+	margin-top: 10px;
+	width: 225px;
+	height: auto;
+	max-height: 44px
+}
+.subWinnerView .productPrice {
+	margin-bottom: 7px
+}
+.subWinnerView .introduceTit {
+	font-size: 12px;
+	color: #666;
+	font-weight: normal
+}
+.commentHotView .aImg {
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	display: block;
+	margin: 0 auto
+}
+.commentHotView p {
+	overflow: hidden;
+	width: 198px;
+	margin: 0
+}
+.commentHotView .productCommt {
+	margin-top: 2px
+}
+.commentHotView .productCommt a, .commentHotView .productCommt a:link, .commentHotView .productCommt a:visited, .commentHotView .productCommt:hover {
+	color: #5a8800
+}
+.sideGrayBox .subTypeUl {
+	margin-top: 15px
+}
+.subTypeUl li {
+	float: left;
+	border-top: #e8e8e8 1px solid;
+	border-left: #e8e8e8 1px solid;
+	border-bottom: #cfcfcf 1px solid;
+	height: 23px;
+	width: 80px;
+	background: url("../images/product/proRpt_x.png-ad4ea9866d1cf0a51697b443aeb589fb.png")/*tpa=http://pimg1.126.net/health/images/product/proRpt_x.png?ad4ea9866d1cf0a51697b443aeb589fb*/ 0 -117px repeat-x;
+	padding: 0;
+	text-align: center;
+	line-height: 22px;
+	cursor: pointer
+}
+.subTypeUl .last {
+	border-right: #e8e8e8 1px solid
+}
+.subTypeUl .active {
+	border-color: #cfcfcf;
+	border-right: #cfcfcf 1px solid;
+	border-bottom-color: #fff;
+	background-image: none;
+	background-color: #fff;
+	font-weight: bold
+}
+.subHotView .aMore {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #888;
+	background-color: #f3f3f3;
+	padding: 0;
+	margin-bottom: 10px;
+	font-family: '宋体'
+}
+.subHotView .aMore a:link, .subHotView .aMore a:visited, .subHotView .aMore a:hover {
+	color: #888
+}
+.brandHotView {
+	margin: 10px auto;
+	border: 1px solid #e1e1e1
+}
+.brandHotView td {
+	background: url("../images/product/proRpt_x.png-ad4ea9866d1cf0a51697b443aeb589fb.png")/*tpa=http://pimg1.126.net/health/images/product/proRpt_x.png?ad4ea9866d1cf0a51697b443aeb589fb*/ 0 -150px repeat-x;
+	height: 60px
+}
+.brandHotView img {
+	border: #f4f4f4 1px solid;
+	border-top: 0;
+	border-bottom: 0
+}
+.brandHotView a, .brandHotView a:link, .brandHotView a:visited, .brandHotView a:hover {
+	color: #333
+}
+.attrWrap {
+	padding: 0;
+	border: 1px solid #ededed;
+	margin-bottom: 10px;
+}
+.attrAll {
+	width: 50px;
+	padding: 0 0 0 5px
+}
+.attrBh, .attrSource, .attrType {
+	border-bottom: 1px solid #f5f5f5;
+	padding: 10px 0 5px;
+	position: relative
+}
+.attrSource {
+	border-bottom: 0
+}
+.brandList, .typeList, .bhList, .sourceList {
+	width: 750px;
+	padding-top: 9px;
+	background: 0
+}
+.bhList, .sourceList {
+	height: 29px;
+	overflow: hidden
+}
+.brandList li a, .typeList li a, .bhList li a, .sourceList li a {
+	padding: 0
+}
+.attrGroup {
+	padding: 0
+}
+.filter {
+	padding: 0;
+	border-top: 1px solid #cacaca;
+	border-bottom: #cacaca 1px solid;
+	width: 960px;
+	background-color: #fff
+}
+.filterFix {
+	border-bottom: #d5d5d5 1px solid
+}
+.filterT {
+	padding: 9px 10px;
+	background-color: #f7f7f7;
+	border-left: #cacaca 1px solid;
+	border-right: #cacaca 1px solid;
+	width: 938px
+}
+.filterB {
+	padding: 7px 10px;
+	height: 18px;
+	border-top: 1px solid #e1e1e1;
+	border-left: #d5d5d5 1px solid;
+	border-right: #d5d5d5 1px solid;
+	background: #f2f2f2 url("../images/product/proRpt_x.png-ad4ea9866d1cf0a51697b443aeb589fb.png")/*tpa=http://pimg1.126.net/health/images/product/proRpt_x.png?ad4ea9866d1cf0a51697b443aeb589fb*/ 0 -80px repeat-x;
+	margin-top: 1px
+}
+.filterB label {
+	margin: 0
+}
+.filterB .ml10 {
+	margin-left: 10px
+}
+.productsView {
+	padding: 5px 0 20px 10px
+}
+.product {
+	width: 200px;
+	padding: 3px 13px 0;
+	border: 2px solid #fff;
+	margin-right: 7px
+}
+.product .actNewIcon {
+	right: 17px
+}
+.stockoutIcon {
+	right: 17px
+}
+.productImg {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	background-image: none
+}
+.productImg img {
+	width: 200px;
+	height: 200px;
+	background: url("../images/errPro.png-978fa05eeba24f970189a98d0fbc57e2.png")/*tpa=http://pimg1.126.net/health/images/errPro.png?978fa05eeba24f970189a98d0fbc57e2*/ 50% 50% no-repeat
+}
+.popularWrap {
+	border: #e8e8e8 solid 1px;
+	height: 128px;
+	padding-left: 35px
+}
+.popularTit {
+	background: url("../images/product/763.html")/*tpa=http://pimg1.126.net/health/images/product/763.html*//*tpa=http://pimg1.126.net/health/images/product/bkBg.png?986be12d62aee397e97bf1b71cab64f1*/ no-repeat scroll 10px -119px #f7f7f7;
+	color: #4b8400;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	height: 81px;
+	line-height: 16px;
+	padding: 30px 11px 10px 12px;
+	width: 14px;
+	border-right: #e8e8e8 solid 1px
+}
+.popularPro {
+	float: left;
+	width: 372px
+}
+.popularPro p {
+	padding-left: 10px;
+	width: 240px;
+	overflow: hidden;
+	zoom: 1
+}
+.popularPro .aImg {
+	float: left;
+	width: 110px;
+	height: 110px;
+	margin-top: 10px
+}
+.popularReason {
+	float: right;
+	height: 98px;
+	background-color: #f7f7f7;
+	padding: 30px 0 0 15px;
+	color: #464c59;
+	line-height: 22px;
+	width: 535px;
+	position: relative;
+	border-left: 1px solid #ededed;
+	z-index: 0
+}
+.popularReason em {
+	font-family: 'microsoft yahei';
+	font-size: 14px
+}
+.popularReason span {
+	color: #464c59;
+	position: absolute;
+	z-index: 2;
+	width: 510px
+}
+.popularReason .cusp {
+	position: absolute;
+	width: 8px;
+	height: 13px;
+	left: -7px;
+	background: url("../images/product/proIcons.png")/*tpa=http://pimg1.126.net/health/images/product/hb4psquh10932_220_220.jpg*//*tpa=http://pimg1.126.net/health/images/product/proIcons.png?48b4f9e68b7e71bb8de96738a11da99b*/ 0 -370px no-repeat;
+	top: 58px
+}
+.popularReason .hotIcon {
+	position: absolute;
+	width: 83px;
+	height: 86px;
+	background: url("/assets/productBg.png")/*tpa=http://pimg1.126.net/health/images/product/productBg.png?2cc9c6b9b1ecd872f896832bac536382*/ 0 -566px no-repeat;
+	right: -5px;
+	top: -3px;
+	z-index: 1
+}
+.popularPro .productTit {
+	height: 20px;
+	margin-top: 3px
+}
+.popularPro .productPrice {
+	margin-top: 0;
+	margin-bottom: 6px;
+	height: 24px;
+	line-height: 24px
+}
+.popularPro .productPrice strong {
+	font-size: 20px;
+	color: #ec2b00
+}
+.popularPro .productCommt {
+	margin-bottom: 6px
+}
+.popularPro .introduceTit {
+	color: #464c59;
+	font-weight: normal;
+	font-family: 'microsoft yahei';
+	margin-top: 10px
+}
+.productsView .linksBox {
+	width: 200px;
+	height: 230px
+}
+.productsView .proIntro {
+	top: 200px;
+	width: 200px
+}
+.productsView .productCommt {
+	margin: 10px 0 0 0
+}
+.btmWrap {
+	width: 1200px;
+	margin: 20px auto 0
+}
+.btmWrap .records {
+	float: left;
+	margin: 0;
+	width: 228px
+}
+.btmWrap .records ul {
+	margin-right: 0;
+	height: 294px;
+	overflow-y: auto;
+	padding-left: 5px
+}
+.btmWrap .records li {
+	width: 205px;
+	height: 80px;
+	padding: 8px 0
+}
+.btmWrap .records li .wrap {
+	width: 120px;
+	line-height: 24px;
+	height: 48px
+}
+.btmWrap .records li strong {
+	width: 120px;
+	font-weight: normal;
+	color: #ec2b00;
+	font-size: 12px
+}
+.btmWrap .records li .productCommt a {
+	display: inline;
+	color: #464c59
+}
+.btmWrap .records li .productCommt a:link, .records li .productCommt a:visited {
+	color: #464c59
+}
+.btmWrap .records li .productCommt a:hover {
+	color: #5a8800
+}
+.btmWrap .records .info {
+	float: right;
+	width: 120px;
+	overflow: hidden;
+	margin-left: 5px
+}
+.records .info .productCommt {
+	margin: 0
+}
+.recommondWrap {
+	float: right;
+	width: 958px;
+	border: 1px solid #eee;
+	height: 326px
+}
+.recommondWrap .productsView {
+	border: 0;
+	margin: 0;
+	padding-bottom: 0
+}
+.recommondWrap h3 {
+	font-size: 14px;
+	background-color: #f5f5f5;
+	height: 32px;
+	line-height: 32px;
+	overflow: hidden;
+	padding: 0 10px;
+	color: #464c59;
+	font-family: 'microsoft yahei'
+}
+.recommondWrap .product {
+	height: 280px;
+	margin-bottom: 0
+}
+.recommondWrap .product:hover, .recommondWrap .productHover {
+	border-color: #fff
+}
+.recommondWrap .productPrice .price {
+	width: 95px
+}
+.recommondWrap .productPrice .a_comment {
+	width: 105px
+}
+.recommondWrap .productTit {
+	height: 20px
+}
+.btmWrap .records .emptyLi {
+	height: 250px
+}
+.multi:link, .multi:visited, .multi:hover, .multi:active {
+	color: #333;
+	text-decoration: none
+}
+a.multi {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 30px;
+	color: #333;
+	padding-left: 18px;
+	background: url("../images/product/proIcons.png") 0 0 no-repeat;
+	width: 31px;
+	height: 18px;
+	line-height: 18px
+}
+a.isMulti {
+	background-position: 3px -209px;
+	background-color: #f4f9e3;
+	border: 1px solid #d4e1a8
+}
+a.isMulti:hover, a.noMulti:hover {
+	border-color: #90a256
+}
+a.noMulti {
+	background-position: 3px -190px;
+	border: 1px solid #d4e1a8
+}
+div.actWrap .brandsTit {
+	border: 0;
+	border-bottom: 1px solid #e8e8e8;
+	padding-left: 20px
+}
+div.actWrap {
+	margin-top: 20px;
+	border: 1px solid #e8e8e8
+}
+.bigMsg {
+	padding: 5px 15px;
+	margin-top: 10px
+}
+.bigMsg dt {
+	padding: 5px 0
+}
+.introDetail {
+	left: 13px
+}
+.attrMoreUp, .attrMore {
+	display: none;
+	right: 26px;
+	top: 33px
+}
+.filterPriceText input.error {
+	border: 1px solid #ba2636;
+	height: 22px
+}
+ul.brandList li span a {
+	display: inline
+}
+ul.brandList li span {
+	max-width: 180px;
+	overflow: hidden
+}
+ul.brandList li span {
+	color: #4b8400
+}
+ul.brandList li.attrSed span {
+	color: #fff
+}
+.actWraplist .productsView {
+	border-bottom: 0;
+	margin-bottom: 0
+}
+.mainWrap {
+	width: 1200px
+}
+.attrBrand {
+	border-top: 1px dashed #ededed;
+	border-bottom:none;
+	padding: 0
+}
+.first_attrBrand {
+	border:none;
+}
+.adultImg {
+	margin-right: -4px;
+	background: url("../images/product/dultBig.png") 0 0 no-repeat;
+	height: 194px
+}
+.attrTit {
+	line-height: 1;
+	padding-top: 10px;
+	height: 20px
+}
+.wrapNarrow .btmWrap, .wrapNarrow .mainWrap {
+	width: 990px
+}
+.wrapNarrow .recommondWrap {
+	width: 750px;
+	overflow: hidden
+}
+.wrapNarrow .maincontent {
+	width: 750px
+}
+.wrapNarrow .filter {
+	width: 750px
+}
+.wrapNarrow .filterSort {
+	padding: 0 18px 0 7px
+}
+.wrapNarrow .filterSortDefultCurr {
+	padding: 0 13px
+}
+.wrapNarrow .filterSortU {
+	background-position: 34px -643px
+}
+.wrapNarrow .filterSortD {
+	background-position: 34px -662px
+}
+.wrapNarrow .price_box {
+	width: 51px;
+	left: 174px
+}
+.wrapNarrow .filter .mr5 {
+	margin-right: 3px
+}
+.wrapNarrow .filterPrice {
+	left: 230px;
+	width: 145px
+}
+.wrapNarrow .filterPriceText {
+	width: 138px;
+	padding: 9px 0 0 5px
+}
+.wrapNarrow .selected_price {
+	padding: 14px 5px 7px;
+	width: 133px
+}
+.wrapNarrow .selected_price .btn {
+	right: 5px
+}
+.wrapNarrow .filterMenu {
+	left: 382px
+}
+.wrapNarrow .filterT {
+	width: 728px
+}
+.wrapNarrow .adultImg {
+	background-image: url("../images/product/adultSmall.png")/*tpa=http://pimg1.126.net/health/images/product/3306.html*//*tpa=http://pimg1.126.net/health/images/product/adultSmall.png?eee983ce8bfe3bb0c5e406d6099500ed*/
+}
+.wrapNarrow .popularReason {
+	width: 325px;
+	height: 105px;
+	padding-top: 23px
+}
+.wrapNarrow .popularReason .txt {
+	width: 300px
+}
+.wrapNarrow .brandList {
+	width: 500px
+}
+.wrapNarrow .productsView {
+	padding: 5px 0 20px 22px
+}
+.pass_hand{ cursor:pointer;}
+#typeSort li{ float:left;}

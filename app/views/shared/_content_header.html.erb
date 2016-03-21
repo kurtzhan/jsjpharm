@@ -1,0 +1,40 @@
+<%
+  model_hash = {
+  	"products" => "商品",
+  	"categories" => "商品分类",
+  	"brands" => "商品品牌",
+    "users" => "用户"
+  }
+
+  action_hash = {
+  	"show" => "预览",
+  	"index" => "列表",
+  	"edit" => "编辑",
+  	"new" => "新建"
+  }
+
+  def get_title(model_hash, action_hash)
+  	model = model_hash[params[:controller]]
+  	action = action_hash[params[:action]]
+
+  	if params[:action] == "index"
+  	  return "#{model}#{action}"
+  	else
+  	  return "#{action}#{model}"
+  	end
+  end
+
+  title = get_title(model_hash, action_hash)
+%>
+<section class="content-header">
+  <h1>
+    <%= title %>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> 网站管理</a></li>
+    <% if params[:action] != "index" %>
+    <li><%= link_to model_hash[params[:controller]] + action_hash["index"], eval(params[:controller] + "_path") %></li>
+    <% end %>
+    <li class="active"><%= title %></li>
+  </ol>
+</section>

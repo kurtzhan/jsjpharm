@@ -1,0 +1,42 @@
+<%= render "shared/content_header"%>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <div class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered table-striped dataTable">
+                  <thead>
+                    <tr role="row">
+                      <th>名称</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% @brands.each do |brand| %>
+                    <tr>
+                      <td><%= brand.name %></td>
+                      <td>
+                        <%= link_to '<i class="fa fa-info"></i>'.html_safe, brand, {"data-toggle" => "tooltip", :title=>"查看"} %>
+                        <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_brand_path(brand), {"data-toggle" => "tooltip", :title=>"编辑"} %>
+                        <%= link_to '<i class="fa fa-remove"></i>'.html_safe, brand, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </td>
+                      <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
+                      <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+                </table>
+                <%= link_to '新建商品品牌', new_brand_path, :class => "btn-primary btn-sm"%>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
