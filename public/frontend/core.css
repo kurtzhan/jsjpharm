@@ -1398,7 +1398,7 @@ li#loginCtrl {
 	height: 69px;
 	margin: auto;
 	overflow: hidden;
-	background: url("../images/footTxt3.png")/*tpa=http://pimg1.126.net/health/images/footTxt3.png?74536fc2a85e89c8c02f7b101946f447*/ center 20px no-repeat;
+	background: url("images/footTxt3.png")/*tpa=http://pimg1.126.net/health/images/footTxt3.png?74536fc2a85e89c8c02f7b101946f447*/ center 20px no-repeat;
 	border-bottom: 1px solid #dfdfdf;
 	border-top: 1px solid #f7f7f7
 }

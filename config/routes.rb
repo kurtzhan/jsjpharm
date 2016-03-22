@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  # namespace :frontend do
+  # namespace :member do
+  #   get 'home/index'
+  #   end
+  # end
 
   scope module: 'frontend', as: 'frontend' do
     resources :categories, only: [:show]
+    namespace :member do
+      get 'home/index'
+    end
   end
 
   devise_for :users
