@@ -5,6 +5,6 @@ class AdminBaseController < ApplicationController
   layout 'backend'
 
   def check_user_role
-  	raise if current_user.id != 1
+  	raise if current_user.has_role?("管理员") == false
   end
 end

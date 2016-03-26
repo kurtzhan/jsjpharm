@@ -1,0 +1,2 @@
+module MemberGradesHelper
+end

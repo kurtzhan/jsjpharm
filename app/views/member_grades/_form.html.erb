@@ -1,0 +1,22 @@
+<%= form_for(@member_grade) do |f| %>
+  <% if @member_grade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member_grade.errors.count, "error") %> prohibited this member_grade from being saved:</h2>
+
+      <ul>
+      <% @member_grade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="box-body">
+    <div class="field form-group">
+      <%= f.label :名称, :for => 'member_grade_name' %><br>
+      <%= f.text_field :name, :class => "form-control", :required=>"required" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "提交", :class => "btn-primary btn-sm" %>
+    </div>
+  </div>
+<% end %>

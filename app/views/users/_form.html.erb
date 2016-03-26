@@ -12,8 +12,25 @@
   <% end %>
   <div class="box-body">
     <div class="field form-group">
-      <%= f.label :Email, :for => 'category_email' %><br>
+      <%= f.label :Email, :for => 'user_email' %><br>
       <%= f.text_field :email, :class => "form-control", :required=>"required" %>
+    </div>
+    <% if params[:action] == "new" %>
+    <div class="field form-group">
+      <%= f.label :密码, :for => 'user_password' %><br>
+      <%= f.password_field :password, :class => "form-control", :required=>"required" %>
+    </div>    
+    <% end %>
+    <div class="field form-group">
+      <% Role.all.each do |role| %>
+        <% hash = {:checked => @user.has_role?(role.name), multiple: true, include_hidden: false} %>
+        <% hash.update({"data-toggle" => "collapse", "data-target" => "#demo"}) if role.name == "会员" %>
+        <%= f.check_box :roles, hash, role.id, role.id %><%= role.name %>
+      <% end %>
+    </div>
+    <div class="field form-group collapse<%= @user.has_role?("会员") ?  ' in': ''%>" id="demo">
+      <%= f.label :用户等级, :for => 'user_member_grade' %><br>
+      <%= f.collection_select :member_grade_id, MemberGrade.all, :id, :name, {}, {:class => "form-control"} %>
     </div>
     <div class="actions">
       <%= f.submit "提交", :class => "btn-primary btn-sm" %>

@@ -1,0 +1,42 @@
+<%= render "shared/content_header"%>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <div class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered table-striped dataTable">
+                  <thead>
+                    <tr role="row">
+                      <th>名称</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% @roles.each do |role| %>
+                    <tr>
+                      <td><%= role.name %></td>
+                      <td>
+                        <%= link_to '<i class="fa fa-info"></i>'.html_safe, role, {"data-toggle" => "tooltip", :title=>"查看"} %>
+                        <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_role_path(role), {"data-toggle" => "tooltip", :title=>"编辑"} %>
+                        <%= link_to '<i class="fa fa-remove"></i>'.html_safe, role, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </td>
+                      <td><%= link_to 'Edit', edit_role_path(role) %></td>
+                      <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+                </table>
+                <%= link_to '新建角色', new_role_path, :class => "btn-primary btn-sm"%>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

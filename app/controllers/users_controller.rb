@@ -4,7 +4,7 @@ class UsersController < AdminBaseController
   # GET /categories
   # GET /categories.json
   def index
-    @users = User.all
+    @users = User.all.includes(:member_grade)
   end
 
   # GET /categories/1
@@ -24,7 +24,8 @@ class UsersController < AdminBaseController
   # POST /categories
   # POST /categories.json
   def create
-    @user = User.new(category_params)
+    my_params = build_params
+    @user = User.new(my_params)
 
     respond_to do |format|
       if @user.save
@@ -40,9 +41,10 @@ class UsersController < AdminBaseController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+    my_params = build_params
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Category was successfully updated.' }
+      if @user.update(my_params)
+        format.html { redirect_to @user, notice: 'Role was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -69,6 +71,15 @@ class UsersController < AdminBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :password, :member_grade_id, :roles => [])
+    end
+
+    def build_params
+      my_params = user_params
+      role_ids = my_params["roles"]
+      my_params["roles"] = role_ids.nil? ? [] : role_ids.map{|id| Role.find id}
+      my_params["member_grade_id"] = nil if my_params["roles"].map(&:name).include?("会员") == false
+
+      return my_params
     end
 end
