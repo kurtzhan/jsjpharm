@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   after_commit :assign_user_role, on: :create
   belongs_to :member_grade
+  has_many :user_delivery_addresses
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

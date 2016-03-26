@@ -8,9 +8,7 @@
   <link rel="stylesheet" href="/frontend/base.css">
   <link rel="stylesheet" href="/frontend/p_pindao1.css">
   <link rel="stylesheet" href="/frontend/products.css">
-  <%= javascript_include_tag '/fjs/jquery18.js', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag '/fjs/easyCore.js', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag '/fjs/products.js', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '/fjs/easyCore_new', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -49,5 +47,8 @@
 
 <%= yield %>
 <%= render 'layouts/frontend/footer' %>
+<script>
+initCategorysBox();
+</script>
 </body>
 </html>

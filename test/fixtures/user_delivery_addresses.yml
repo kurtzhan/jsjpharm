@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  province_id: 
+  city_id: 
+  district_id: 
+  address: MyString
+  telephone: MyString
+  receiver: MyString
+
+two:
+  user_id: 
+  province_id: 
+  city_id: 
+  district_id: 
+  address: MyString
+  telephone: MyString
+  receiver: MyString

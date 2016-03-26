@@ -4,19 +4,20 @@
   <div class="us_top_tit">会员中心</div>
   <div class="userCenterBox">
     <div class="usTit" onmouseover="this.className='usTit_on'" onmouseout="this.className='usTit'">账户中心</div>
-    <div class="userMenu" style="border-bottom:0;"> <a href="user.php" class="curs">欢迎页</a> <a href="user.php?act=profile">用户信息</a> </div>
+    <div class="userMenu" style="border-bottom:0;"> <%= link_to "欢迎页", frontend_member_member_root_path, :class => params[:controller] == "frontend/member/home" ? "curs" : "" %> <a href="user.php?act=profile">用户信息</a> </div>
     <div class="usTit" onmouseover="this.className='usTit_on'" onmouseout="this.className='usTit'">客户服务</div>
     <div class="userMenu" style="border-bottom:0;"> <a href="user.php?act=collection_list">我的收藏</a> <a href="user.php?act=message_list">我的留言</a> <a href="user.php?act=tag_list">我的标签</a> <a href="user.php?act=bonus">我的红包</a> 
       <a href="user.php?act=affiliate">我的推荐</a> 
     </div>
     <div class="usTit" onmouseover="this.className='usTit_on'" onmouseout="this.className='usTit'">订单中心</div>
-    <div class="userMenu"> <a href="user.php?act=order_list">我的订单 </a> <a href="user.php?act=address_list">收货地址</a> <a href="user.php?act=booking_list">缺货登记</a> <a href="user.php?act=comment_list">我的评论</a> 
+    <div class="userMenu"> <a href="user.php?act=order_list">我的订单 </a> 
+    <%= link_to "收货地址", frontend_member_user_delivery_addresses_path, :class => params[:controller] == "frontend/member/user_delivery_addresses" ? "curs" : "" %>
+    <a href="user.php?act=booking_list">缺货登记</a> <a href="user.php?act=comment_list">我的评论</a> 
       <!--<a href="user.php?act=group_buy">我的团购</a>--> 
       <a href="user.php?act=track_packages">跟踪包裹</a> <a href="user.php?act=account_log">资金管理</a> 
        
-      
-      <a href="user.php?act=logout" style="background:none; text-align:right; padding-bottom:5px;"><img src="/frontend/images/bnt_sign.gif"></a> </div>
+      <%= link_to(image_tag("/frontend/images/bnt_sign.gif"), destroy_user_session_path, :method => 'delete', :style => "background:none; text-align:right; padding-bottom:5px;") %>
+       </div>
   </div>
 </div>
-  
-  </div>
+</div>

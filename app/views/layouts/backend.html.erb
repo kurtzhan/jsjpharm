@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">  
+    <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   </head>
     <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -309,7 +312,7 @@
                 <li<%= params[:controller] == "brands" && ["index", "new", "edit", "show"].include?(params[:action]) ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 商品品牌'.html_safe, brands_path %></li>
               </ul>
             </li>
-            <li class="treeview<%= ["users", "roles", "member_grades"].include?(params[:controller]) ? " active" : ""%>">
+            <li class="treeview<%= ["users", "roles", "member_grades", "user_delivery_addresses"].include?(params[:controller]) ? " active" : ""%>">
               <a href="#">
                 <i class="fa fa-user"></i>
                 <span>用户管理</span>
@@ -319,6 +322,7 @@
                 <li<%= params[:controller] == "users" && params[:action] == "index" ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 用户列表'.html_safe, users_path %></li>
                 <li<%= params[:controller] == "roles" && params[:action] == "index" ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 角色列表'.html_safe, roles_path %></li>
                 <li<%= params[:controller] == "member_grades" && ["index", "new", "edit", "show"].include?(params[:action]) ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 用户等级列表'.html_safe, member_grades_path %></li>
+                <li<%= params[:controller] == "user_delivery_addresses" && ["index", "new", "edit", "show"].include?(params[:action]) ? " class=active" : ""%>><%= link_to '<i class="fa fa-circle-o"></i> 用户收货地址列表'.html_safe, user_delivery_addresses_path %></li>
               </ul>
             </li>
             <li>
@@ -453,10 +457,6 @@
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
     </body>
-    <!-- jQuery 2.1.4 -->
-    <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);

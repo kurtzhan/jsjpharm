@@ -1,11 +1,20 @@
+<!-- jQuery UI 1.11.4 -->
+<%= javascript_include_tag 'jquery', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'jquery_ujs', 'data-turbolinks-track' => true %>
   <nav id="topNav">
   <div id="topNavWrap">
     <div id="ECS_MEMBERZONE"><div id="append_parent"></div>
  
    <label>
-  您好，欢迎光临本店！
-  <a href="user.php?act=login">请登录</a>  
-  <a href="user.php?act=register" target="_blank" style="margin-left:3px;">免费注册</a>
+  您好
+  <% if current_user.nil? %>
+  ，欢迎光临本店！
+  <%= link_to "请登录", new_user_session_path %>
+  <%= link_to "免费注册", new_user_registration_path %>
+  <% else %>
+  , <%= current_user.email %>
+  <%= link_to "退出", destroy_user_session_path, :method => "delete" %>
+  <% end %>
    </label>
 </div>
     <ul id="topNavRight">

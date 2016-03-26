@@ -1,0 +1,72 @@
+<%= form_for(@user_delivery_address) do |f| %>
+  <% if @user_delivery_address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_delivery_address.errors.count, "error") %> prohibited this user_delivery_address from being saved:</h2>
+
+      <ul>
+      <% @user_delivery_address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="box-body">
+    <div class="field form-group">
+      <%= f.label :用户, :for => "user_delivery_address_user_id" %><br>
+      <%= f.collection_select :user_id, User.joins(:roles).where("roles.name = '会员'"), :id, :email, {:include_blank => '请选择用户'}, {:class => 'form-control', :required => "required"} %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :省份, :for => "user_delivery_address_province_id" %><br>
+      <%= f.collection_select :province_id, Province.all, :id, :name, {:include_blank => '请选择省份'}, {:class => "form-control region_select", "data-region-target" => "user_delivery_address_city_id", "data-region-target-klass" => "city", "data-region-klass" => "province"} %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :城市, :for => "user_delivery_address_city_id" %><br>
+      <%= f.collection_select :city_id, @user_delivery_address.province_id ? City.where(province_id: @user_delivery_address.province_id) : [], :id, :name, {:include_blank => '请选择城市'}, {:class => "form-control region_select", "data-region-target" => "user_delivery_address_district_id", "data-region-target-klass" => "district", "data-region-klass" => "city"} %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :区县, :for => "user_delivery_address_district_id" %><br>
+      <%= f.collection_select :district_id, @user_delivery_address.city_id ? District.where(city_id: @user_delivery_address.city_id) : [], :id, :name, {:include_blank => '请选择区县'}, {:class => "form-control"} %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :地址, :for => "user_delivery_address_address" %><br>
+      <%= f.text_field :address, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :电话, :for => "user_delivery_address_telephone" %><br>
+      <%= f.text_field :telephone, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :收货人, :for => "user_delivery_address_receiver" %><br>
+      <%= f.text_field :receiver, :class => "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "提交", :class => "btn-primary btn-sm" %>
+    </div>
+  </div>
+<% end %>
+<script type="text/javascript">
+  //<![CDATA[
+    $(function(){
+      $('body').off('change', '.region_select').on('change', '.region_select', function(event) {
+        var self, $targetDom;
+        self = $(event.currentTarget);
+        $targetDom = $('#' + self.data('region-target'));
+        $targetTargetDom = $('#' + $targetDom.data('region-target'));
+        if($targetTargetDom.size() > 0){
+          $('option[value!=""]', $targetTargetDom).remove();
+        }
+        if ($targetDom.size() > 0) {
+          $.getJSON('/china_region_fu/fetch_options', {klass: self.data('region-target-klass'), parent_klass: self.data('region-klass'), parent_id: self.val()}, function(data) {
+            var options = [];
+            $('option[value!=""]', $targetDom).remove();
+            $.each(data, function(index, value) {
+              options.push("<option value='" + value.id + "'>" + value.name + "</option>");
+            });
+            $targetDom.append(options.join(''));
+          });
+        }
+      });
+    });
+  //]]>
+</script>

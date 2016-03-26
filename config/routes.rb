@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   scope module: 'frontend', as: 'frontend' do
     resources :categories, only: [:show]
     namespace :member do
-      get '/' => 'home#index', as: :frontend_member_root
+      get '/' => 'home#index', as: :member_root
+      resources :user_delivery_addresses
+      #get 'delivery_addresses/' => 'delivery_addresses#index', as: :delivery_addresses
     end
   end
 
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
     resources :users
     resources :roles
     resources :member_grades
+    resources :user_delivery_addresses
     get '/' => 'home#index', as: :backend_root
   end
   
