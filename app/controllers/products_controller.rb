@@ -48,6 +48,12 @@ class ProductsController < AdminBaseController
   def update
     respond_to do |format|
       if @product.update(product_params)
+        if params[:images]
+          #===== The magic is here ;)
+          params[:images].each { |image|
+            @product.pictures.create(image: image)
+          }
+        end
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else

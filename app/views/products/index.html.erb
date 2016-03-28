@@ -28,8 +28,18 @@
                       <td><%= product.brand.name if product.brand %></td>
                       <td>
                         <% product.pictures.each do |p| %>
+                        <div style="float:left;">
+                          <div>
                           <%= image_tag p.image.url(:thumb) %>
+                          </div>
+                          <div>
+                            <a href="#">U</a>
+                            <a href="#">D</a>
+                            <a href="#">D</a>
+                          </div>
+                        </div>
                         <% end %> 
+                        <div style="clear:both"></div>
                       </td>
                       <td>
                         <%= product.tag_list.join(",") %>
