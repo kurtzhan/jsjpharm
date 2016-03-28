@@ -16,7 +16,7 @@ class Category < ActiveRecord::Base
   	return hash if return_hash
   	array = []
   	build_category_hierachy(array, hash, "--")
-  	array.unshift(["顶级分类", nil])
+  	#array.unshift(["顶级分类", nil])
   	return array
   end
 

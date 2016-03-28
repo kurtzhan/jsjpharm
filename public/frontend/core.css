@@ -904,7 +904,7 @@ li#loginCtrl {
 	height: 71px;
 	left: 0;
 	top: 20px;
-	background: url("/assets/logo.gif")/*tpa=http://pimg1.126.net/health/images/logo2014.jpg?ddcc24b2b26c06d2af755c5031adf094*/ 0 0 no-repeat;
+	background: url("images/logo.gif")/*tpa=http://pimg1.126.net/health/images/logo2014.jpg?ddcc24b2b26c06d2af755c5031adf094*/ 0 0 no-repeat;
 	outline: 0
 }
 #docHead .orderHeadWrap .logoLnk, .logoLnk:hover {
@@ -998,7 +998,7 @@ li#loginCtrl {
 .topSearchBox1, .btmSearchBox {
 	color: #333;
 	padding: 0 0 0 15px;
-	background: url("/assets/indexSprite.png")/*tpa=http://pimg1.126.net/health/images/index/indexSprite.png?06ab205c87c787727243777193cbdbac*/ 0 -444px no-repeat;
+	background: url("images/indexSprite.png")/*tpa=http://pimg1.126.net/health/images/index/indexSprite.png?06ab205c87c787727243777193cbdbac*/ 0 -444px no-repeat;
 	width: 490px;
 	height: 40px;
 	_zoom: 1
@@ -1155,7 +1155,7 @@ li#loginCtrl {
 }
 .navCategorys h2 .cusp, #categorysBox h2 .cusp {
 	position: absolute;
-	background: url("/assets/icons.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -297px no-repeat;
+	background: url("images/icons.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -297px no-repeat;
 	width: 23px;
 	height: 23px;
 	top: 10px;
@@ -1202,7 +1202,7 @@ li#loginCtrl {
 	color: #5a8800
 }
 .categorys h3 .a_type {
-	background: url("/assets/indexIcon.png")/*tpa=http://pimg1.126.net/health/images/index/indexIcon.png?04384c5beed8e7cbbefcbeeb2e36a09f*/ 0 -814px no-repeat;
+	background: url("images/indexIcon.png")/*tpa=http://pimg1.126.net/health/images/index/indexIcon.png?04384c5beed8e7cbbefcbeeb2e36a09f*/ 0 -814px no-repeat;
 	display: block;
 	height: 20px;
 	outline: 0;
@@ -1268,7 +1268,7 @@ li#loginCtrl {
 	zoom: 1;
 	float: left;
 	width: 133px;
-	background: url("/assets/indexIcon.png")/*tpa=http://pimg1.126.net/health/images/index/indexIcon.png?04384c5beed8e7cbbefcbeeb2e36a09f*/ 128px -760px no-repeat;
+	background: url("images/indexIcon.png")/*tpa=http://pimg1.126.net/health/images/index/indexIcon.png?04384c5beed8e7cbbefcbeeb2e36a09f*/ 128px -760px no-repeat;
 	height: 20px;
 	line-height: 20px;
 *padding-top:2px;
@@ -1891,7 +1891,7 @@ a:hover {
 }
 .crumbs .aHome {
 	display: inline-block;
-	background: url("/assets/icons.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -46px no-repeat;
+	background: url("images/icons.png")/*tpa=http://pimg1.126.net/health/images/icons.png?bdf27a1588c4a188e1b6e8e88ee77613*/ 0 -46px no-repeat;
 	width: 16px;
 	height: 16px;
 	float: left;

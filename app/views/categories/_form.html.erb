@@ -17,7 +17,7 @@
     </div>
     <div class="field form-group">
       <%= f.label :父级分类 %><br>
-      <%= f.select :parent_category_id, Category.get_all_categories, {}, {:class => "form-control"} %>
+      <%= f.collection_select :parent_category_id, Category.get_all_categories, :last, :first, {:include_blank => '顶级分类'}, {:class => "form-control"} %>
     </div>
     <div class="field form-group">
       <%= f.label :order %><br>

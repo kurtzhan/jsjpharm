@@ -11,27 +11,68 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="box-body">
+  <div class="field form-group">
+    <%= f.label :名称, :for => "product_name" %><br>
+    <%= f.text_field :name, :class=>"form-control", :required => "required" %>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+  <div class="field form-group">
+    <%= f.label :分类, :for => "product_category_id" %><br>
+    <%= f.collection_select :category_id, Category.get_all_categories, :last, :first, {:include_blank => '请选择分类'}, {:class => "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :order %><br>
-    <%= f.text_field :order %>
+  <div class="field form-group">
+    <%= f.label :品牌, :for => "product_brand_id" %><br>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, {:include_blank => '请选择品牌'}, {:class => "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tag_list, :value => @product.tag_list.join(",") %>
+  <div class="field form-group">
+    <%= f.label :顺序, :for => "product_order" %><br>
+    <%= f.number_field :order, {:class => "form-control"} %>
   </div>
-  <div class="field">
+  <div class="field form-group">
+    <%= f.label :标签, :for => "product_tag_list"  %><br>
+    <%= f.text_field :tag_list, {:value => @product.tag_list.join(","), :class => "form-control", :placeholder => "半角逗号分隔的标签"} %>
+    <input type="hidden" value="<%= @product.tag_list.join(",") %>" id="hidden_tags" />
+    <div>
+    <% ActsAsTaggableOn::Tagging.where(:taggable_type => 'product').map{|t| t.tag.name}.uniq.each do |tag_name| %>
+      <input class="ckb_tag" value="<%= tag_name %>" type="checkbox"<%= @product.tag_list.include?(tag_name) ? " checked='checked'".html_safe : ""%> /><%= tag_name %>
+    <% end %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :市场价格, :for => "product_market_price" %><br>
+    <%= f.number_field :market_price, {:class => "form-control", :step=>"0.01"} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :本店价格, :for => "product_price" %><br>
+    <%= f.number_field :price, {:class => "form-control", :step=>"0.01"} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :简单描述, :for => "product_short_description" %><br>
+    <%= f.text_area :short_description, {:class => "form-control"} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :商家备注, :for => "product_memo" %><br>
+    <%= f.text_area :memo, {:class => "form-control"} %>
+  </div>
+  <div class="field" form-group>
   <%= f.label :pictures %><br>
-  <%= file_field_tag "images[]", type: :file, multiple: true %>
+  <%= file_field_tag "images[]", type: :file, multiple: true, :class => "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
 <% end %>
+<script>
+$(".ckb_tag").bind("change", function(){
+  var tags_array = $("#hidden_tags").val().split(",");
+  if(tags_array.length == 1 && tags_array[0] == "")
+    tags_array = [];
+  if($(this).prop("checked") == true)
+    tags_array.push($(this).val());
+  else
+    tags_array.splice( $.inArray($(this).val(), tags_array), 1 );
+  $("#hidden_tags").val(tags_array.join(","));
+  $("#product_tag_list").val(tags_array.join(","));
+})
+</script>
