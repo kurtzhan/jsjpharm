@@ -1,6 +1,3 @@
-<!-- jQuery UI 1.11.4 -->
-<%= javascript_include_tag 'jquery', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'jquery_ujs', 'data-turbolinks-track' => true %>
   <nav id="topNav">
   <div id="topNavWrap">
     <div id="ECS_MEMBERZONE"><div id="append_parent"></div>
@@ -13,7 +10,7 @@
   <%= link_to "免费注册", new_user_registration_path %>
   <% else %>
   , <%= current_user.email %>
-  <%= link_to "退出", destroy_user_session_path, :method => "delete" %>
+  <%= link_to "退出", destroy_user_session_path %>
   <% end %>
    </label>
 </div>
@@ -44,6 +41,14 @@
 <header id="docHead" class="">
   <div class="fixedBg"></div>
   <div id="docHeadWrap">
+    <div class="navCategorys hide">
+      <h2>
+        全部商品分类<span class="cusp"></span>
+      </h2>
+      <% if params[:controller] == "frontend/home" %>
+      <%= render :partial => 'frontend/shared/category_menu', :locals => {:display => true, :from_header => true} %>
+      <% end %>
+    </div>
   <%= link_to "", root_path, :class => "logoLnk" %>
     <div class="topSearchBox1 ownHotKeys1">
     <form id="searchForm" name="searchForm" action="search.php" method="get" onsubmit="return checkSearchForm()">

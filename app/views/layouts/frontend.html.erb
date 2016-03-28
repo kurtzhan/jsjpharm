@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/frontend/base.css">
   <link rel="stylesheet" href="/frontend/p_pindao1.css">
   <%= stylesheet_link_tag    '/frontend/products.css', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag '/fjs/easyCore_new', 'data-turbolinks-track' => true %>
+<!-- jQuery UI 1.11.4 -->
+<%= javascript_include_tag '/fjs/jquery-1.4.2', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -46,7 +47,4 @@
 <%= yield %>
 <%= render 'layouts/frontend/footer' %>
 </body>
-<script>
-init_nav();
-</script>
 </html>

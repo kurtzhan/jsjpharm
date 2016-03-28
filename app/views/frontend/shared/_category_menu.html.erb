@@ -1,4 +1,4 @@
-  <ul class="categorys clearfix" id="js_categorys"<%= display == false ? " style='display:none'".html_safe : ""%>>
+  <ul class="categorys clearfix" id="<%= from_header ? 'js_navcategorys' : 'js_categorys'%>"<%= display == false ? " style='display:none'".html_safe : ""%>>
      <% @category_hash.keys.each_with_index do |top_category, index| %>
     <li class="clearfix" name="cat_<%= top_category.id %>">
      <h3 class="type<%= index + 1 %>">
@@ -14,7 +14,7 @@
      </li>
       <% end %>
   </ul>
-  <div id="sub_categorys" class="subCategorys" style="left: 578.5px; top: 318px; display: none;">
+  <div id="<%= from_header ? 'navsub_categorys' : 'sub_categorys'%>" class="subCategorys">
     <ul>
     <% @category_hash.keys.each_with_index do |top_category, index| %>
             <li id="cat_<%= top_category.id %>" style="display: none;">

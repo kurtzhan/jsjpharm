@@ -1,11 +1,11 @@
-class Frontend::CategoriesController < ApplicationController
+class Frontend::CategoriesController < Frontend::ApplicationController
   layout 'category'
   
   def index
   end
 
   def show
-    @category_hash = Category.get_all_categories(true)
+    #@category_hash = Category.get_all_categories(true)
     @category = Category.find(params[:id])
   end
 end

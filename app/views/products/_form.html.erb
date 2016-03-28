@@ -21,7 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :order %><br>
-    <%= f.number_field :order %>
+    <%= f.text_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tag_list, :value => @product.tag_list.join(",") %>
   </div>
   <div class="field">
   <%= f.label :pictures %><br>
