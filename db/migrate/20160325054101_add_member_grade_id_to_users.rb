@@ -1,5 +1,7 @@
 class AddMemberGradeIdToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :member_grade_id, :integer
+    change_table :users do |t|
+      t.references :member_grade, index: true, foreign_key: true
+    end
   end
 end
