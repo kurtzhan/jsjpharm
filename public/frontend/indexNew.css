@@ -1417,7 +1417,7 @@ a.c_666, a.c_666:link, a.c_666:visited, a.c_666:hover {
 	line-height: 40px;
 	text-align: center;
 	color: #fff;
-	background: url("../images/index/indexBtn2014.png-4d0b92456c79a1d64f4d51cc5eae947f.png")/*tpa=http://pimg1.126.net/health/images/index/indexBtn2014.png?4d0b92456c79a1d64f4d51cc5eae947f*/ 0 -158px no-repeat
+	background: url("images/indexBtn2014.png")/*tpa=http://pimg1.126.net/health/images/index/indexBtn2014.png?4d0b92456c79a1d64f4d51cc5eae947f*/ 0 -158px no-repeat
 }
 .zoneGoodsMain .linksWrap .moreTypes:link, .zoneGoodsMain .linksWrap .moreTypes:visited, .zoneGoodsMain .linksWrap .moreTypes:hover {
 	color: #fff;
@@ -1463,11 +1463,11 @@ a.c_666, a.c_666:link, a.c_666:visited, a.c_666:hover {
 	background-position: 0 -704px
 }
 .zoneGoodsTop a{ display:block; width:230px; height:50px;}
-.zone0 .zoneGoodsTop a{ background:url(../images/index/zoneTit0.png) no-repeat;}
-.zone1 .zoneGoodsTop a{ background:url(../images/index/zoneTit1.png) no-repeat;}
-.zone2 .zoneGoodsTop a{ background:url(../images/index/zoneTit2.png) no-repeat;}
-.zone3 .zoneGoodsTop a{ background:url(../images/index/zoneTit3.png) no-repeat;}
-.zone4 .zoneGoodsTop a{ background:url(../images/index/zoneTit4.png) no-repeat;}
+.zone0 .zoneGoodsTop a{ background:url(images/zoneTit0.png) no-repeat;}
+.zone1 .zoneGoodsTop a{ background:url(images/zoneTit1.png) no-repeat;}
+.zone2 .zoneGoodsTop a{ background:url(images/zoneTit2.png) no-repeat;}
+.zone3 .zoneGoodsTop a{ background:url(images/zoneTit3.png) no-repeat;}
+.zone4 .zoneGoodsTop a{ background:url(images/zoneTit4.png) no-repeat;}
 .zone5 .zoneGoodsTop a{ background:url(../images/index/zoneTit5.png) no-repeat;}
 .zone6 .zoneGoodsTop a{ background:url(../images/index/zoneTit6.png) no-repeat;}
 .subcategoryGoods .proIntro {
@@ -2069,7 +2069,7 @@ a.c_666, a.c_666:link, a.c_666:visited, a.c_666:hover {
 	position: absolute;
 	width: 104px;
 	height: 8px;
-	background: url("../images/index/indexBtn2014.png-4d0b92456c79a1d64f4d51cc5eae947f.png")/*tpa=http://pimg1.126.net/health/images/index/indexBtn2014.png?4d0b92456c79a1d64f4d51cc5eae947f*/ 0 -764px no-repeat;
+	background: url("images/indexBtn2014.png")/*tpa=http://pimg1.126.net/health/images/index/indexBtn2014.png?4d0b92456c79a1d64f4d51cc5eae947f*/ 0 -764px no-repeat;
 	display: none;
 	bottom: -6px;
 	left: 0;

@@ -122,10 +122,10 @@ var DifferSecond = -1;
    Diffms -= DifferSecond * Secondms;
    var dSecs = Math.floor(Diffms / microsecond);
    
-   if(convertHour != DifferHour) a="剩余&lt;font style='color:#5a8800'&gt;"+DifferHour+"&lt;/font&gt;天";
-   if(convertMinute != DifferMinute) b="&lt;font  style='color:#5a8800'&gt;"+DifferMinute+"&lt;/font&gt;时";
-   if(convertSecond != DifferSecond) c="&lt;font  style='color:#5a8800'&gt;"+DifferSecond+"&lt;/font&gt;分";
-     d="&lt;font  style='color:#5a8800'&gt;"+dSecs+"&lt;/font&gt;秒";
+   if(convertHour != DifferHour) a="剩余<font style='color:#5a8800'>"+DifferHour+"</font>天";
+   if(convertMinute != DifferMinute) b="<font  style='color:#5a8800'>"+DifferMinute+"</font>时";
+   if(convertSecond != DifferSecond) c="<font  style='color:#5a8800'>"+DifferSecond+"</font>分";
+     d="<font  style='color:#5a8800'>"+dSecs+"</font>秒";
      if (DifferHour>0) {a=a} 
      else {a=''}
    document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
@@ -147,17 +147,52 @@ var DifferSecond = -1;
     </dd>
   </dl>
     <script>
-  Tday[0] = new Date("Mar 18, 2020 08:00:00");
+  Tday[0] = new Date("Mar 18, 2017 08:00:00");
   window.setInterval(function()     
   {clock(0);}, 1000);     
   </script>
-   
-     
-     
-     
-     
-     
-     
-   
 </div>
 </article>
+<div class="clearbox"></div>
+<article class="mainWrap" style="width:1200px;">
+  <% @category_hash.keys.each_with_index do |category, index| %>
+  <div class="zoneGoodsArea zone<%= index %>">
+    <dl class="zoneGoodsTop clearfix">
+      <dt class="zoneTit0">
+        <%= link_to "", frontend_category_path(category) %>
+      </dt>
+      <dd class="clearfix">
+        <ul class="subTypeUL clearfix">
+        <% @category_hash[category][0..3].each_with_index do |sub_hash, sub_index| %>
+          <li class="li0<%= sub_index == 0 ? ' active' : '' %>" rel="#subType<%= sub_hash.keys.first.id %>">
+          <%= sub_hash.keys.first.name %>
+          <em class="crusp"></em>
+          </li>
+        <% end %>
+        </ul>
+      </dd>
+    </dl>
+    <div class="zoneGoodsMain clearfix">
+      <div class="product fixPro">
+        <a href="affiche.php?ad_id=107&amp;uri=http://ec68.com" target="_blank" class="productImg" style="background: none rgb(255, 255, 255);">
+          <img width="228" height="420" border="0" src="data/afficheimg/1393480451.jpg">
+        </a>
+        <div class="linksWrap">
+          <div class="typesWrap clearfix">
+          <% @category_hash[category].each do |sub_hash| %>
+          <span class="link"><%= link_to sub_hash.keys.first.name, frontend_category_path(sub_hash.keys.first.id), :class=>"highLight0" %></span>
+          <% end %>
+          <%= link_to "更多#{category.name}分类", frontend_category_path(category), :class => "moreTypes" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</article>
+<div class="zoneFloatNav" style="display: none; margin-right:-681px;">
+<% @category_hash.keys.each_with_index do |category, index| %>
+<a href="javascript:;" class="nav<%= index + 1 %>"><%= category.name %></a>
+<% end %>
+</div>
+<script>Core && Core.quickInit && Core.quickInit();</script>
