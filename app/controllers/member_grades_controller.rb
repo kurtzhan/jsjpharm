@@ -69,6 +69,6 @@ class MemberGradesController < AdminBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_grade_params
-      params.require(:member_grade).permit(:name)
+      params.require(:member_grade).permit(:name, :discount_percentage)
     end
 end

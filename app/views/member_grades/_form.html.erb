@@ -15,6 +15,10 @@
       <%= f.label :名称, :for => 'member_grade_name' %><br>
       <%= f.text_field :name, :class => "form-control", :required=>"required" %>
     </div>
+    <div class="field form-group">
+      <%= f.label "折扣率(%)", :for => 'member_discount_percentage' %><br>
+      <%= f.number_field :discount_percentage, :class => "form-control", :min => 0, :max => 100 %>
+    </div>
     <div class="actions">
       <%= f.submit "提交", :class => "btn-primary btn-sm" %>
     </div>

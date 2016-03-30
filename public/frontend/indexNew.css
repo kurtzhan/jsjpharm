@@ -220,7 +220,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#996e6e6e, endCo
 .slidGoodsViewL, .slidGoodsViewR {
 	position: absolute;
 	cursor: pointer;
-	background: url("../images/index/indexSprite2.png-fb97a835a13311ca3a8dfceb0539fa47.png")/*tpa=http://pimg1.126.net/health/images/index/indexSprite2.png?fb97a835a13311ca3a8dfceb0539fa47*/ 0 -691px no-repeat;
+	background: url("images/indexSprite2.png")/*tpa=http://pimg1.126.net/health/images/index/indexSprite2.png?fb97a835a13311ca3a8dfceb0539fa47*/ 0 -691px no-repeat;
 	top: 100px;
 	left: 3px;
 	width: 60px;

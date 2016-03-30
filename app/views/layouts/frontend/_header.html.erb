@@ -46,7 +46,7 @@
         全部商品分类<span class="cusp"></span>
       </h2>
       <% if params[:controller] == "frontend/home" %>
-      <%= render :partial => 'frontend/shared/category_menu', :locals => {:display => true, :from_header => true} %>
+      <%= render :partial => 'frontend/shared/category_menu', :locals => {:display => false, :from_header => true} %>
       <% end %>
     </div>
   <%= link_to "", root_path, :class => "logoLnk" %>

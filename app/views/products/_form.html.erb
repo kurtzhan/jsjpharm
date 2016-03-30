@@ -44,7 +44,15 @@
   </div>
   <div class="field form-group">
     <%= f.label :本店价格, :for => "product_price" %><br>
-    <%= f.number_field :price, {:class => "form-control", :step=>"0.01"} %>
+    <%= f.number_field :price, {:class => "form-control", :step=>"0.01", :required => "required"} %>
+    <div style="padding:5px;">
+      会员价格根据折扣率计算得出<br>
+      <%= f.fields_for :product_member_grade_prices do |product_member_grade_price_fields| %>
+      <%= f.label product_member_grade_price_fields.object.member_grade.name, :for => "product_product_member_grade_prices_attributes_#{product_member_grade_price_fields.index}_price" %>
+      <%= product_member_grade_price_fields.number_field :price, :required => "required", :step=>"0.01" %>
+      <%= product_member_grade_price_fields.hidden_field :member_grade_id %>
+      <% end %>
+    </div>
   </div>
   <div class="field form-group">
     <%= f.label :简单描述, :for => "product_short_description" %><br>
@@ -75,4 +83,14 @@ $(".ckb_tag").bind("change", function(){
   $("#hidden_tags").val(tags_array.join(","));
   $("#product_tag_list").val(tags_array.join(","));
 })
+</script>
+<script>
+  var mg_discount_percentage = "<%= MemberGrade.all.map{|mg| [mg.id, mg.discount_percentage]}.to_json %>";
+  var discount_percentage_array = eval(mg_discount_percentage);
+  $("#product_price").bind("change", function(){
+    $.each(discount_percentage_array, function(index, sub_array){
+      var p = parseFloat($("#product_price").val()) * sub_array[1] / 100;
+      $("#product_product_member_grade_prices_attributes_" + index + "_price").val(p);
+    })
+  })
 </script>

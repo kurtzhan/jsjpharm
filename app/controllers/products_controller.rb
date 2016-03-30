@@ -1,5 +1,7 @@
 class ProductsController < AdminBaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :build_product, only: [:new]
+  before_action :build_product_member_grade_prices, only: [:edit, :new]
 
   # GET /products
   # GET /products.json
@@ -14,7 +16,6 @@ class ProductsController < AdminBaseController
 
   # GET /products/new
   def new
-    @product = Product.new
   end
 
   # GET /products/1/edit
@@ -81,6 +82,18 @@ class ProductsController < AdminBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :category_id, :order, :tag_list, :images, :brand_id, :market_price, :price, :short_description, :memo)
+      params.require(:product).permit(:name, :category_id, :order, :tag_list, :images, :brand_id, :market_price, :price, :short_description, :memo, :product_member_grade_prices_attributes => [:price, :member_grade_id, :id])
+    end
+
+    def build_product_member_grade_prices
+      MemberGrade.all.each do |mg|
+        if @product.product_member_grade_prices.map(&:member_grade_id).include?(mg.id) == false
+          @product.product_member_grade_prices.build(:member_grade => mg)
+        end
+      end
+    end
+
+    def build_product
+      @product = Product.new
     end
 end

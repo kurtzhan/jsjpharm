@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   scope module: 'frontend', as: 'frontend' do
     resources :categories, only: [:show]
+    resources :products, only: [:show]
     namespace :member do
       get '/' => 'home#index', as: :member_root
       resources :user_delivery_addresses

@@ -64,221 +64,33 @@
 </article>
 <article class="recommendWrap">
   <section class="slidGoodsBox clearfix" id="recommendBox">
-    <ul class="slidGoodsType clearfix"><li rel="#slidGoods0" class="li0 active">惊爆特价</li><li rel="#slidGoods1" class="li1">店长推荐</li><li rel="#slidGoods2" class="li2">新品尝鲜</li><li rel="#slidGoods3" class="li3">热销爆款</li></ul>
-    <div id="slidGoods0" class="slidGoodsWrap"> <a style="display: inline;" href="javascript:;" class="slidGoodsViewL"></a><a style="display: inline;" href="javascript:;" class="slidGoodsViewR"></a>
-  <div class="slidGoodsViewBox">
-    <div class="slidGoodsViewScroll">
-      <div class="productsView clearfix"> 
-                <div class="product"> <span class="introDetailBg" style="opacity: 0;"></span><a href="goods.php?id=37" target="_blank" class="introDetail" style="opacity: 0;"><em></em><span></span></a> <a href="goods.php?id=37"><img border="0" width="200" height="200" alt="Nutrilon荷兰牛栏荷兰" src="images/201403/thumb_img/37_thumb_G_1395048568287.jpg" style="opacity: 1;"></a>
-          <p class="introduceTit">纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="goods.php?id=37" target="_blank">Nutrilon荷兰牛栏荷兰</a></p>
-          <p class="productPrice"><span>189元</span>&nbsp;<del>240元</del></p>
-          <p class="productActLink"> </p>
+    <% tags = ["惊爆特价", "店长推荐", "新品尝鲜", "热销爆款"] %>
+    <ul class="slidGoodsType clearfix">
+      <% tags.each_with_index do |tag, index| %>
+        <li rel="#slidGoods<%= index %>" class="li<%= index %><%= index == 0 ? ' active' : '' %>"><%= tag %></li>
+      <% end %>
+    </ul>
+    <% tags.each_with_index do |tag, index| %>
+    <div id="slidGoods<%= index %>" class="slidGoodsWrap"> <a style="display: inline;" href="javascript:;" class="slidGoodsViewL"></a><a style="display: inline;" href="javascript:;" class="slidGoodsViewR"></a>
+      <div class="slidGoodsViewBox">
+        <div class="slidGoodsViewScroll">
+          <div class="productsView clearfix">
+              <% Product.tagged_with(tag).each do |product| %>
+              <div class="product"> <span class="introDetailBg"></span>
+              <%= link_to "<em></em><span>#{product.memo}</span>".html_safe, frontend_product_path(product), :class => "introDetail" %>
+              <%= link_to image_tag("test.jpg", :size => "200x200"), frontend_product_path(product) %>
+              <p class="introduceTit"><%= product.short_description %></p>
+              <p class="productTit"><%= link_to product.name, frontend_product_path(product) %></p>
+              <p class="productPrice"><span><%= product.price %>元</span>&nbsp;<del><%= product.market_price %>元</del></p>
+              <p class="productActLink"> </p>
+            </div>
+             <% end %>
+          </div>
         </div>
-                <div class="product"> <span class="introDetailBg" style="opacity: 0;"></span><a href="goods.php?id=48" target="_blank" class="introDetail" style="opacity: 0;"><em></em><span>用于改善肤质、紧实松弛皮肤的成年女性，美国原装进口，特别添加维生素C，帮助胶原蛋白的吸收。</span></a> <a href="goods.php?id=48"><img border="0" width="200" height="200" alt="NUTRIVITA好唯他水解胶原蛋白营养片60粒" src="images/201403/thumb_img/48_thumb_G_1395047637420.jpg" style="opacity: 1;"></a>
-          <p class="introduceTit">肌肤年轻化的二次选择</p>
-          <p class="productTit"><a href="goods.php?id=48" target="_blank">NUTRIVITA好唯他水解胶...</a></p>
-          <p class="productPrice"><span>90元</span>&nbsp;<del>118元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=41" target="_blank" class="introDetail"><em></em><span>纯粹音色, 极致细节, 不仅入耳, 而且入心，纯粹音色, 极致细节, 不仅入耳, 而且入心</span></a> <a href="goods.php?id=41"><img border="0" width="200" height="200" alt="Natrol木瓜酵素片" src="images/201403/thumb_img/41_thumb_G_1395048213452.jpg"></a>
-          <p class="introduceTit">专为饮酒、脂肪肝人群</p>
-          <p class="productTit"><a href="goods.php?id=41" target="_blank">Natrol木瓜酵素片</a></p>
-          <p class="productPrice"><span>10元</span>&nbsp;<del>14元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=50" target="_blank" class="introDetail"><em></em><span>强健男士套餐，玛卡抗疲劳，精氨酸增加精子量，激发无限潜能，凸显男人雄风。</span></a> <a href="goods.php?id=50"><img border="0" width="200" height="200" alt="AURINDA魅力男士礼盒蜂王浆100粒+袋鼠精120粒" src="images/201403/thumb_img/50_thumb_G_1395047402509.jpg"></a>
-          <p class="introduceTit">纯爷们的秘密武器</p>
-          <p class="productTit"><a href="goods.php?id=50" target="_blank">AURINDA魅力男士礼盒蜂王...</a></p>
-          <p class="productPrice"><span>66元</span>&nbsp;<del>100元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=49" target="_blank" class="introDetail"><em></em><span>适用于面部松弛、皱纹等老化迹象明显，需改善皮肤干燥、抵御皮肤衰老的女性，28天体验完美蜕变。</span></a> <a href="goods.php?id=49"><img border="0" width="200" height="200" alt="十一坊胶原蛋白软胶囊60粒" src="images/201403/thumb_img/49_thumb_G_1395047520369.jpg"></a>
-          <p class="introduceTit">28天体验完美蜕变</p>
-          <p class="productTit"><a href="goods.php?id=49" target="_blank">十一坊胶原蛋白软胶囊60粒</a></p>
-          <p class="productPrice"><span>66元</span>&nbsp;<del>91元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=13" target="_blank" class="introDetail"><em></em><span>国家食品药品监督管理局批准，蓝帽产品，不仅能够补充孩子生长所需的钙质,同时还富含胡萝卜素及矿物质。</span></a> <a href="goods.php?id=13"><img border="0" width="200" height="200" alt="善存小佳维咀嚼片（香甜柠檬）组合80片*2瓶" src="images/201403/thumb_img/13_thumb_G_1395110684913.jpg"></a>
-          <p class="introduceTit">全网销量No1</p>
-          <p class="productTit"><a href="goods.php?id=13" target="_blank">善存小佳维咀嚼片（香甜柠檬）组...</a></p>
-          <p class="productPrice"><span>1100元</span>&nbsp;<del>1573元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=44" target="_blank" class="introDetail"><em></em><span>适用于18岁以上需要瘦身的肥胖人群，独特的生物发酵法生产，是普通产品的3倍，轻松瘦身不反弹。</span></a> <a href="goods.php?id=44"><img border="0" width="200" height="200" alt="美澳健减肥胶囊80粒装" src="images/201403/thumb_img/44_thumb_G_1395048003138.jpg"></a>
-          <p class="introduceTit">减肥必备 轻松不反弹</p>
-          <p class="productTit"><a href="goods.php?id=44" target="_blank">美澳健减肥胶囊80粒装</a></p>
-          <p class="productPrice"><span>89元</span>&nbsp;<del>120元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
       </div>
     </div>
-  </div>
-</div>    <div id="slidGoods1" class="slidGoodsWrap"> <a style="display: inline;" href="javascript:;" class="slidGoodsViewL"></a><a style="display: inline;" href="javascript:;" class="slidGoodsViewR"></a>
-  <div class="slidGoodsViewBox">
-    <div class="slidGoodsViewScroll">
-      <div class="productsView clearfix">
-          
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=51" target="_blank" class="introDetail"><em></em><span>适用于需要减肥瘦身的人群，左旋搭配魔芋，燃脂、清脂双效合一，尤其适合喜欢食用肉类的肥胖者。</span></a> <a class="productImg" target="_blank" href="goods.php?id=51"><img border="0" width="200" height="200" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/51_thumb_G_1395047537284.jpg"></a>
-          <p class="introduceTit"> 四合一配方，效果更佳</p>
-          <p class="productTit"><a href="goods.php?id=51" target="_blank">GNC健安喜深海鱼油软胶囊（全...</a></p>
-          <p class="productPrice"><span>41元 </span>&nbsp;<del>54元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=37" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=37"><img border="0" width="200" height="200" alt="Nutrilon荷兰牛栏荷兰" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/37_thumb_G_1395048568287.jpg"></a>
-          <p class="introduceTit"> 纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="goods.php?id=37" target="_blank">Nutrilon荷兰牛栏荷兰</a></p>
-          <p class="productPrice"><span>189元 </span>&nbsp;<del>240元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=59" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=59"><img border="0" width="200" height="200" alt="红景天 西洋参枸杞子胶囊" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201603/thumb_img/59_thumb_G_1458584763679.jpg"></a>
-          <p class="introduceTit"> </p>
-          <p class="productTit"><a href="goods.php?id=59" target="_blank">红景天 西洋参枸杞子胶囊</a></p>
-          <p class="productPrice"><span>58元 </span>&nbsp;<del>70元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=48" target="_blank" class="introDetail"><em></em><span>用于改善肤质、紧实松弛皮肤的成年女性，美国原装进口，特别添加维生素C，帮助胶原蛋白的吸收。</span></a> <a class="productImg" target="_blank" href="goods.php?id=48"><img border="0" width="200" height="200" alt="NUTRIVITA好唯他水解胶原蛋白营养片60粒" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/48_thumb_G_1395047637420.jpg"></a>
-          <p class="introduceTit"> 肌肤年轻化的二次选择</p>
-          <p class="productTit"><a href="goods.php?id=48" target="_blank">NUTRIVITA好唯他水解胶...</a></p>
-          <p class="productPrice"><span>90元 </span>&nbsp;<del>118元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=41" target="_blank" class="introDetail"><em></em><span>纯粹音色, 极致细节, 不仅入耳, 而且入心，纯粹音色, 极致细节, 不仅入耳, 而且入心</span></a> <a class="productImg" target="_blank" href="goods.php?id=41"><img border="0" width="200" height="200" alt="Natrol木瓜酵素片" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/41_thumb_G_1395048213452.jpg"></a>
-          <p class="introduceTit"> 专为饮酒、脂肪肝人群</p>
-          <p class="productTit"><a href="goods.php?id=41" target="_blank">Natrol木瓜酵素片</a></p>
-          <p class="productPrice"><span>10元 </span>&nbsp;<del>14元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=42" target="_blank" class="introDetail"><em></em><span>纯粹音色, 极致细节, 不仅入耳, 而且入心纯粹音色, 极致细节, 不仅入耳, 而且入心</span></a> <a class="productImg" target="_blank" href="goods.php?id=42"><img border="0" width="200" height="200" alt="Jamieson健美生绿茶和苹果酸浓缩复合片90片" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/42_thumb_G_1395048163276.jpg"></a>
-          <p class="introduceTit"> 纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="goods.php?id=42" target="_blank">Jamieson健美生绿茶和苹...</a></p>
-          <p class="productPrice"><span>20元 </span>&nbsp;<del>24元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="goods.php?id=50" target="_blank" class="introDetail"><em></em><span>强健男士套餐，玛卡抗疲劳，精氨酸增加精子量，激发无限潜能，凸显男人雄风。</span></a> <a class="productImg" target="_blank" href="goods.php?id=50"><img border="0" width="200" height="200" alt="AURINDA魅力男士礼盒蜂王浆100粒+袋鼠精120粒" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/50_thumb_G_1395047402509.jpg"></a>
-          <p class="introduceTit"> 纯爷们的秘密武器</p>
-          <p class="productTit"><a href="goods.php?id=50" target="_blank">AURINDA魅力男士礼盒蜂王...</a></p>
-          <p class="productPrice"><span>66元 </span>&nbsp;<del>100元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-         
-      </div>
-    </div>
-  </div>
-</div>    <div id="slidGoods2" class="slidGoodsWrap"> <a style="display: inline;" href="javascript:;" class="slidGoodsViewL"></a><a style="display: inline;" href="javascript:;" class="slidGoodsViewR"></a>
-  <div class="slidGoodsViewBox">
-    <div class="slidGoodsViewScroll">
-      <div class="productsView clearfix"> 
-         
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>适用于需要减肥瘦身的人群，左旋搭配魔芋，燃脂、清脂双效合一，尤其适合喜欢食用肉类的肥胖者。</span></a> <a class="productImg" target="_blank" href="goods.php?id=51"><img border="0" width="200" height="200" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/51_thumb_G_1395047537284.jpg"></a>
-          <p class="introduceTit"> 四合一配方，效果更佳</p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">GNC健安喜深海鱼油软胶囊（全...</a></p>
-          <p class="productPrice"><span>41元 </span>&nbsp;<del>54元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=37"><img border="0" width="200" height="200" alt="Nutrilon荷兰牛栏荷兰" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/37_thumb_G_1395048568287.jpg"></a>
-          <p class="introduceTit"> 纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">Nutrilon荷兰牛栏荷兰</a></p>
-          <p class="productPrice"><span>189元 </span>&nbsp;<del>240元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=59"><img border="0" width="200" height="200" alt="红景天 西洋参枸杞子胶囊" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201603/thumb_img/59_thumb_G_1458584763679.jpg"></a>
-          <p class="introduceTit"> </p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">红景天 西洋参枸杞子胶囊</a></p>
-          <p class="productPrice"><span>58元 </span>&nbsp;<del>70元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>用于改善肤质、紧实松弛皮肤的成年女性，美国原装进口，特别添加维生素C，帮助胶原蛋白的吸收。</span></a> <a class="productImg" target="_blank" href="goods.php?id=48"><img border="0" width="200" height="200" alt="NUTRIVITA好唯他水解胶原蛋白营养片60粒" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/48_thumb_G_1395047637420.jpg"></a>
-          <p class="introduceTit"> 肌肤年轻化的二次选择</p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">NUTRIVITA好唯他水解胶...</a></p>
-          <p class="productPrice"><span>90元 </span>&nbsp;<del>118元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>纯粹音色, 极致细节, 不仅入耳, 而且入心纯粹音色, 极致细节, 不仅入耳, 而且入心</span></a> <a class="productImg" target="_blank" href="goods.php?id=24"><img border="0" width="200" height="200" alt="汤臣倍健维生素C片100片" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/24_thumb_G_1395109937673.jpg"></a>
-          <p class="introduceTit"> 增强抵抗力 美白添活力</p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">汤臣倍健维生素C片100片</a></p>
-          <p class="productPrice"><span>2000元 </span>&nbsp;<del>2400元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>国家食品药品监督管理局批准，蓝帽产品，不仅能够补充孩子生长所需的钙质,同时还富含胡萝卜素及矿物质。</span></a> <a class="productImg" target="_blank" href="goods.php?id=13"><img border="0" width="200" height="200" alt="善存小佳维咀嚼片（香甜柠檬）组合80片*2瓶" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/13_thumb_G_1395110684913.jpg"></a>
-          <p class="introduceTit"> 全网销量No1</p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">善存小佳维咀嚼片（香甜柠檬）组...</a></p>
-          <p class="productPrice"><span>1100元 </span>&nbsp;<del>1573元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-        <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=1"><img border="0" width="200" height="200" alt="仿网易保健品模板测试商品22" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/200905/thumb_img/1_thumb_G_1240902890710.jpg"></a>
-          <p class="introduceTit"> 纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="http://baojian.163.com/product/3541.html#from=tab2" target="_blank">仿网易保健品模板测试商品22</a></p>
-          <p class="productPrice"><span>1388元 </span>&nbsp;<del>1666元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-         
-      </div>
-    </div>
-  </div>
-</div>    <div id="slidGoods3" class="slidGoodsWrap"> <a style="display: inline;" href="javascript:;" class="slidGoodsViewL"></a><a style="display: inline;" href="javascript:;" class="slidGoodsViewR"></a>
-  <div class="slidGoodsViewBox">
-    <div class="slidGoodsViewScroll">
-      <div class="productsView clearfix"> 
-         
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>适用于需要减肥瘦身的人群，左旋搭配魔芋，燃脂、清脂双效合一，尤其适合喜欢食用肉类的肥胖者。</span></a> <a class="productImg" target="_blank" href="goods.php?id=51"><img border="0" width="200" height="200" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/51_thumb_G_1395047537284.jpg"></a>
-          <p class="introduceTit"> 四合一配方，效果更佳</p>
-          <p class="productTit"><a href="goods.php?id=51" target="_blank">GNC健安喜深海鱼油软胶囊（全...</a></p>
-          <p class="productPrice"><span>41元 </span>&nbsp;<del>54元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=37"><img border="0" width="200" height="200" alt="Nutrilon荷兰牛栏荷兰" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/37_thumb_G_1395048568287.jpg"></a>
-          <p class="introduceTit"> 纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="goods.php?id=37" target="_blank">Nutrilon荷兰牛栏荷兰</a></p>
-          <p class="productPrice"><span>189元 </span>&nbsp;<del>240元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span></span></a> <a class="productImg" target="_blank" href="goods.php?id=59"><img border="0" width="200" height="200" alt="红景天 西洋参枸杞子胶囊" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201603/thumb_img/59_thumb_G_1458584763679.jpg"></a>
-          <p class="introduceTit"> </p>
-          <p class="productTit"><a href="goods.php?id=59" target="_blank">红景天 西洋参枸杞子胶囊</a></p>
-          <p class="productPrice"><span>58元 </span>&nbsp;<del>70元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>用于改善肤质、紧实松弛皮肤的成年女性，美国原装进口，特别添加维生素C，帮助胶原蛋白的吸收。</span></a> <a class="productImg" target="_blank" href="goods.php?id=48"><img border="0" width="200" height="200" alt="NUTRIVITA好唯他水解胶原蛋白营养片60粒" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/48_thumb_G_1395047637420.jpg"></a>
-          <p class="introduceTit"> 肌肤年轻化的二次选择</p>
-          <p class="productTit"><a href="goods.php?id=48" target="_blank">NUTRIVITA好唯他水解胶...</a></p>
-          <p class="productPrice"><span>90元 </span>&nbsp;<del>118元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>纯粹音色, 极致细节, 不仅入耳, 而且入心，纯粹音色, 极致细节, 不仅入耳, 而且入心</span></a> <a class="productImg" target="_blank" href="goods.php?id=41"><img border="0" width="200" height="200" alt="Natrol木瓜酵素片" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/41_thumb_G_1395048213452.jpg"></a>
-          <p class="introduceTit"> 专为饮酒、脂肪肝人群</p>
-          <p class="productTit"><a href="goods.php?id=41" target="_blank">Natrol木瓜酵素片</a></p>
-          <p class="productPrice"><span>10元 </span>&nbsp;<del>14元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>纯粹音色, 极致细节, 不仅入耳, 而且入心纯粹音色, 极致细节, 不仅入耳, 而且入心</span></a> <a class="productImg" target="_blank" href="goods.php?id=42"><img border="0" width="200" height="200" alt="Jamieson健美生绿茶和苹果酸浓缩复合片90片" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/42_thumb_G_1395048163276.jpg"></a>
-          <p class="introduceTit"> 纯粹音色, 极致细节, 不仅入耳, 而且入心</p>
-          <p class="productTit"><a href="goods.php?id=42" target="_blank">Jamieson健美生绿茶和苹...</a></p>
-          <p class="productPrice"><span>20元 </span>&nbsp;<del>24元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-                <div class="product"> <span class="introDetailBg"></span><a href="" target="_blank" class="introDetail"><em></em><span>强健男士套餐，玛卡抗疲劳，精氨酸增加精子量，激发无限潜能，凸显男人雄风。</span></a> <a class="productImg" target="_blank" href="goods.php?id=50"><img border="0" width="200" height="200" alt="AURINDA魅力男士礼盒蜂王浆100粒+袋鼠精120粒" src="themes/68ecshop_wangyibaojian/images/blank.gif" lazyload="images/201403/thumb_img/50_thumb_G_1395047402509.jpg"></a>
-          <p class="introduceTit"> 纯爷们的秘密武器</p>
-          <p class="productTit"><a href="goods.php?id=50" target="_blank">AURINDA魅力男士礼盒蜂王...</a></p>
-          <p class="productPrice"><span>66元 </span>&nbsp;<del>100元</del></p>
-          <p class="productActLink"> </p>
-        </div>
-         
-         
-      </div>
-    </div>
-  </div>
-</div>  </section>
+    <% end %>
+  </section>
 <script>
 var Tday = new Array();
 var daysms = 24 * 60 * 60 * 1000;
