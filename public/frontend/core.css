@@ -3006,7 +3006,7 @@ div.product .actIcon04, div.product .actIcon05, div.product .actIcon06, div.prod
 	text-align: center
 }
 .guideOnline, .guideOnlineDis {
-	background: #fff url("../images/guideImg.png-f938c59bfbadf669eaa1e2f67a56fa9d.png")/*tpa=http://pimg1.126.net/health/images/guideImg.png?f938c59bfbadf669eaa1e2f67a56fa9d*/ 23px -286px no-repeat;
+	background: #fff url("images/guideImg.png")/*tpa=http://pimg1.126.net/health/images/guideImg.png?f938c59bfbadf669eaa1e2f67a56fa9d*/ 23px -286px no-repeat;
 	top: 310px
 }
 .guideOnline:link, .guideOnline:visited, .guideOnlineDis:link, .guideOnlineDis:visited {
@@ -3024,7 +3024,7 @@ div.product .actIcon04, div.product .actIcon05, div.product .actIcon06, div.prod
 	border-width: 1px;
 	border-style: solid;
 	border-color: #f5f5f5 #ececec #e2e2e2;
-	background: #FFF url("../images/index/indexIcon.png-04384c5beed8e7cbbefcbeeb2e36a09f.png")/*tpa=http://pimg1.126.net/health/images/index/indexIcon.png?04384c5beed8e7cbbefcbeeb2e36a09f*/ center -645px no-repeat;
+	background: #FFF url("images/indexIcon.png")/*tpa=http://pimg1.126.net/health/images/index/indexIcon.png?04384c5beed8e7cbbefcbeeb2e36a09f*/ center -645px no-repeat;
 	text-indent: -9999px;
 	overflow: hidden;
 	top: 370px;
@@ -3037,7 +3037,7 @@ div.product .actIcon04, div.product .actIcon05, div.product .actIcon06, div.prod
 	background-position: center -681px
 }
 .yysOnline, .yysOnlineDis {
-	background: #fff url("../images/guideImg.png-f938c59bfbadf669eaa1e2f67a56fa9d.png")/*tpa=http://pimg1.126.net/health/images/guideImg.png?f938c59bfbadf669eaa1e2f67a56fa9d*/ 23px -222px no-repeat;
+	background: #fff url("images/guideImg.png")/*tpa=http://pimg1.126.net/health/images/guideImg.png?f938c59bfbadf669eaa1e2f67a56fa9d*/ 23px -222px no-repeat;
 	top: 250px;
 }
 .yysOnline:link, .yysOnlineDis:link, .yysOnline:visited, .yysOnlineDis:visited {
@@ -3069,7 +3069,7 @@ div.product .actIcon04, div.product .actIcon05, div.product .actIcon06, div.prod
 	border-bottom: #f5f5f5 solid 1px;
 	color: #333;
 	line-height: 29px;
-	background: #fff url("../images/index/indexTxt3.png-aa39507ce337719328c52c571c5d1c0b.png")/*tpa=http://pimg1.126.net/health/images/index/indexTxt3.png?aa39507ce337719328c52c571c5d1c0b*/ 17px -351px no-repeat;
+	background: #fff url("images/indexTxt3.png")/*tpa=http://pimg1.126.net/health/images/index/indexTxt3.png?aa39507ce337719328c52c571c5d1c0b*/ 17px -351px no-repeat;
 	padding-left: 38px
 }
 .zoneFloatNav a:link, .zoneFloatNav a:visited {
