@@ -1,6 +1,6 @@
 <div class="pindao_body">
 <div id="position"> <div class="crumbs">
-<a class="aHome" href="index.php"></a>&gt;<a href=".">首页</a> <code>&gt;</code> <%= link_to @category.name, frontend_category_path(@category.id) %>
+<%= link_to "", root_path , :class => "aHome" %>&gt;<%= link_to "首页", root_path %> <code>&gt;</code> <%= link_to @category.name, frontend_category_path(@category) %>
 </div>
 </div>
 </div>

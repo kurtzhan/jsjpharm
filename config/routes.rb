@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  post '/products/add_to_cart' => 'frontend/products#add_to_cart'
   scope module: 'frontend', as: 'frontend' do
     resources :categories, only: [:show]
     resources :products, only: [:show]

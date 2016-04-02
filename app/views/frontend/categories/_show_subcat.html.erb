@@ -1,5 +1,5 @@
 <div class="crumbs"> <div class="crumbs">
-<a class="aHome" href="index.php"></a>&gt;<a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=2">基础</a> <code>&gt;</code> <a href="category.php?id=33">改善睡眠</a> 
+<%= link_to "", root_path , :class => "aHome" %>&gt;<%= link_to "首页", root_path %> <code>&gt;</code> <%= link_to Category.find(@category.parent_category_id).name, frontend_category_path(@category.parent_category_id) %> <code>&gt;</code> <%= link_to @category.name, frontend_category_path(@category) %> 
 </div> </div>
 <article class="mainWrap clearfix">
 <section class="siderBox"> <dl class="categoryView">

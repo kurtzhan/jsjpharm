@@ -1,0 +1,678 @@
+<link rel="stylesheet" href="/frontend/product.css">
+<%= javascript_include_tag '/fjs/transport', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/fjs/jquery.json', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/fjs/common', 'data-turbolinks-track' => true %>
+<style>
+.detail_logo {
+width: 207px;
+height: 291px;
+margin: 40px 30px 0 0;
+background: url(themes/68ecshop_wangyibaojian/images/detail_logo_bg.gif) 0 0 no-repeat;
+float: right;
+}
+.detail_logo_img {
+width: 180px;
+height: 180px;
+margin: 10px 13px 0 14px;
+display: inline;
+float: left;
+}
+.detail_logo_txt {
+width: 180px;
+height: 33px;
+line-height: 33px;
+margin: 0 13px 0 14px;
+display: inline;
+float: left;
+}
+.detail_logo_txt p {
+text-align: center;
+font-size: 14px;
+color: #333;
+}
+.detail_logo_btn {
+width: 165px;
+margin: 0 21px;
+display: inline;
+border-top: 1px #f3f3f3 solid;
+float: left;
+}
+.detail_logo_btn a {
+width: 103px;
+height: 29px;
+line-height: 27px;
+margin: 18px 0 0 31px;
+display: inline;
+background: url(themes/68ecshop_wangyibaojian/images/detail_logo_btn.gif) 0 0 no-repeat;
+text-align: center;
+font-size: 13px;
+color: #4c4c4c;
+float: left;
+}
+</style>
+<div class="crumbs">
+  <%= link_to "", root_path , :class => "aHome" %>&gt;<%= link_to "首页", root_path %> <code>&gt;</code>
+  <% if @product.category.parent_category_id %>
+  <%= link_to Category.find(@product.category.parent_category_id).name, frontend_category_path(@product.category.parent_category_id) %> <code>&gt;</code>
+  <% end %>
+  <%= link_to @product.category.name, frontend_category_path(@product.category) %> <code>&gt;</code>
+  <%= @product.name %>
+</div>
+<h1 class="hide"><%= @product.name %></h1>
+<article class="mainWrap clearfix" style="width:1200px;">
+  <form action="javascript:addToCard(<%= @product.id %>)" name="ECS_FORMBUY" id="ECS_FORMBUY">
+    <div class="PinfoWrap clearfix">
+      <div class="PImgBox">
+        <a href="javascript:;" id="litimgUp" class="scrollBtn scrollDis" onmouseover="moveUp()" onmousedown="clickUP()" onmouseup="moveUP()" onmouseout="scrollStop()"><b class="up"></b></a>
+        <a href="javascript:;" id="litimgDown" class="scrollBtn  scrollDown scrollDis" onmouseover="moveDown()" onmousedown="clickDown()" onmouseup="moveDown()" onmouseout="scrollStop()"><b class="down"></b></a>
+        <div class="litimg_box" id="demo">
+          <div id="demo1" style="float: left;">
+            <ul id="litimgUl">
+                  <% @product.pictures.each_with_index do |picture, index| %>
+                  <li<%= index == 0 ? " class=active" : "" %>>
+                    <a href="javascript:;" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;">
+                      <%= image_tag picture.image.url(:original), :size => "72x72" %>
+                    </a>
+                  </li>
+                  <% end %>
+                </ul>
+          </div>
+          <div id="demo2" style="display: inline; overflow: visible;"></div>
+          </div>
+<script>
+      function $gg(id){  
+        return (document.getElementById) ? document.getElementById(id): document.all[id]
+      }
+      var boxheight=76;//跟图片的实际尺寸相符
+      
+      var box=$gg("demo");
+      var obox=$gg("demo1");
+      var dulbox=$gg("demo2");
+      obox.style.height=obox.getElementsByTagName("li").length*boxheight+'px';
+      dulbox.style.height=obox.getElementsByTagName("li").length*boxheight+'px';
+      box.style.height=obox.getElementsByTagName("li").length*boxheight*1+'px';
+      var canroll = false;
+      if (obox.getElementsByTagName("li").length >= 4) {
+        canroll = true;
+        dulbox.innerHTML=obox.innerHTML;
+      }
+      var step=5;temp=1;speed=50;
+      var aheight=obox.offsetHeight;
+      var mData=0;
+      var isStop = 1;
+      var dir = 1;
+      
+      function s(){
+        if (!canroll) return;
+        if (dir) {
+      if((aheight+mData)>=0)
+      {
+      mData=mData-step;
+      }
+      else
+      {
+      mData=-step;
+      }
+      } else {
+        if(mData>=0)
+        {
+        mData=-aheight;
+        }
+        else
+        {
+        mData+=step;
+        }
+      }
+      
+      obox.style.marginTop=mData+"px";
+      
+      if (isStop) return;
+      
+      setTimeout(s,speed)
+      }
+      
+      
+      function moveUp() {
+          var wasStop = isStop;
+          dir = 1;
+          speed = 50;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      
+      function moveDown() {
+          var wasStop = isStop;
+          dir = 0;
+          speed = 50;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      
+      function scrollStop() {
+        isStop=1;
+      }
+      
+      function clickUp() {
+          var wasStop = isStop;
+          dir = 1;
+          speed = 25;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      
+      function clickDown() {
+          var wasStop = isStop;
+          dir = 0;
+          speed = 25;
+          isStop=0;
+          if (wasStop) {
+            setTimeout(s,speed);
+          }
+      }
+      </script>
+        <div id="showImgBox" style="background: none rgb(255, 255, 255);"><b style="top: 96px; left: 0px; display: none;"></b>
+          <%= image_tag @product.pictures.first.image.url(:original), :size => "430x430", :id => "showImg" %>
+        </div>
+        <%= link_to "查看大图", @product.pictures.first.image.url(:original), :id => "showLocalImg", :target => "_blank", :class => "showLocalImg", :style => "margin-right:175px" %>
+        <div id="showDetails" style="display: none; background: none rgb(255, 255, 255);">
+          <%= image_tag @product.pictures.first.image.url(:original), :id => "showImgBig", :style=>"left: 0px; top: -370px;" %>
+        </div>
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="margin-left: 235px;"> <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a class="bds_renren"></a> <a class="bds_t163"></a> <span class="bds_more"></span> <a class="shareCount"></a> </div>
+        <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script> 
+        <script type="text/javascript" id="bdshell_js"></script> 
+        <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+        </script>
+
+      </div>
+        <div class="detail_logo">
+              <div class="detail_logo_img"><img src="http://qr.liantu.com/api.php?text=http://122.10.53.95/mobile/goods.php?id=37" border="0" width="180" height="180" alt="Nutrilon荷兰牛栏荷兰"></div>
+              <div class="detail_logo_txt">
+                <p>扫一扫二维码</p>
+              </div>
+              <div class="detail_logo_btn"> <a href="javascript:void(0)">手机购 更方便</a> </div>
+        </div>
+        <dl class="PInfo" style="margin-top: -330px;">
+        <dt>Nutrilon荷兰牛栏荷兰</dt>
+         
+        <script type="text/javascript" src="js/lefttime.js"></script>        <dd class="giftDd1"><b class="icon_r">促销</b><em class="PInfo_r">剩余时间：<span class="c_red" id="leftTime">1447天17小时59分钟48秒</span></em></dd>
+                <dd class="giftDd2"></dd>
+        <dd>市场价：<span class="PInfo_r delPrice"><del id="js_marketPrice">240元</del></span></dd>
+                <dd>促销价：<span class="PInfo_r priceLocal"><strong class="currentPrice" id="goodsPrice"><b>189元</b></strong></span></dd>
+                <dd>评&nbsp;&nbsp;&nbsp;&nbsp;价：<span class="PInfo_r"><span class="outerStar2"><span class="innerStar2 w10
+">&nbsp;</span></span>已有<a id="js_toCommnet" href="#userRating">7</a>人评价</span></dd>
+                    <dd>商品货号：ECS000037</dd>
+                                 <dd>商品库存：          1973 </dd>
+                           <dd>商品品牌：<a href="brand.php?id=3">Natrol</a></dd>
+                     <dd>商品重量：0克</dd>
+                     <dd>上架时间：2012-04-08</dd>
+              <dd>
+          <div class="proCon_form_box">
+            <ul class="proCon_form_box_upCon">
+              
+               
+              
+               
+                            <li class="padd loop"> 颜色： 
+                
+                <div class="catt"> 
+                  
+                   
+                  
+                 <a class="cattsel" onclick="changeAtt(this)" href="javascript:;" name="264" title="[ 0.00元]">白色<input style="display:none" id="spec_value_264" type="radio" name="spec_185" value="264" checked=""></a>
+                  
+                   
+                  
+                 <a onclick="changeAtt(this)" href="javascript:;" name="265" title="[ 0.00元]">粉色<input style="display:none" id="spec_value_265" type="radio" name="spec_185" value="265"></a>
+                  
+                   
+                  
+                </div>
+              </li>
+                            <li class="padd loop"> 配件： 
+                
+                <div class="catt"> 
+                  
+                   
+                  
+                 <a class="cattsel" onclick="changeAtt(this)" href="javascript:;" name="266" title="[ 0.00元]">线控耳机<input style="display:none" id="spec_value_266" type="radio" name="spec_210" value="266" checked=""></a>
+                  
+                   
+                  
+                 <a onclick="changeAtt(this)" href="javascript:;" name="267" title="[ 0.00元]">数据线<input style="display:none" id="spec_value_267" type="radio" name="spec_210" value="267"></a>
+                  
+                   
+                  
+                </div>
+              </li>
+               
+              
+              
+            </ul>
+          </div>
+        </dd>
+        
+      
+      
+        <dd class="buyBox" id="js_skuBox">
+          <div><span class="PInfo_r"> 
+            <script language="javascript" type="text/javascript">  function goods_cut(){var num_val=document.getElementById('number');  var new_num=num_val.value;  var Num = parseInt(new_num);  if(Num>1)Num=Num-1;  num_val.value=Num;}  
+            function goods_add()
+            {$("#number").val(parseInt($("#number").val()) + 1);}
+             </script> 
+            <em name="js_buyBox"><span class="c_gray storageTips" style="margin-right:5px;">数量</span><a href="javascript:;" onclick="goods_cut();changePrice();" class="ctrNum reduceNum ctrNumDis">－</a>
+            <input type="text" value="1" name="number" class="buyNum" autocomplete="off" id="number" onblur="changePrice();">
+            <a href="javascript:;" class="ctrNum addNum" onclick="goods_add();">＋</a><span class="c_gray storageTips" id="js_storagetxt"> 
+商品总价：<font id="ECS_GOODS_AMOUNT" style="color: #ba2636; font-size:22px; font-weight:bold;">189元</font>
+            </span>
+            </em> <em class="pt20"><a href="javascript:addToCart1(37)" id="buyBtn">立即购买</a><a href="javascript:;" onclick="addToCart(<%= @product.id %>)" id="addCart">加入购物车</a> <a href="javascript:collect(37)">收藏</a></em> </span></div>
+        </dd>
+        <dd class="clearfix"> 
+           
+          可用积分：<span class="PInfo_r" style=" width:200px;">购买商品可用 <strong class="c_green">200 积分</strong></span> 
+           
+        </dd>
+      </dl>
+    </div>
+  </form>
+  <div class="mainBtmWrap clearfix">
+  <div class="siderBox">
+    <div class="sideGrayBox">
+      <h4>本商品相关分类</h4>
+      <ul class="similarFnView clearfix">
+                        <li class="li1"><a href="category.php?id=16" target="_blank" title="均衡营养">均衡营养</a></li>
+                <li class="li1"><a href="category.php?id=17" target="_blank" title="配方奶粉">配方奶粉</a></li>
+                <li class="li1"><a href="category.php?id=18" target="_blank" title="健脑益智">健脑益智</a></li>
+                <li class="li1"><a href="category.php?id=56" target="_blank" title="增强免疫">增强免疫</a></li>
+                <li class="li1"><a href="category.php?id=57" target="_blank" title="骨骼发育">骨骼发育</a></li>
+                <li class="li1"><a href="category.php?id=88" target="_blank" title="儿童补钙">儿童补钙</a></li>
+                <li class="li1"><a href="category.php?id=89" target="_blank" title="孩子挑食">孩子挑食</a></li>
+                <li class="li1"><a href="category.php?id=90" target="_blank" title="矿物质">矿物质</a></li>
+              </ul>
+    </div>
+         
+        <div class="sideGrayBox mt10">
+      <h4>相同属性商品</h4>
+      <ul class="userBuyView">
+                <li class="clearfix "> <a href="goods.php?id=33" target="_blank" class="aImg" style="background: none rgb(255, 255, 255);"> <img width="100" height="100" border="0" src="images/201403/thumb_img/33_thumb_G_1395109138807.jpg" alt="Blackmores澳佳宝月见草油胶囊190粒" title="Blackmores澳佳宝月见草油胶囊190粒"></a>
+          <p class="productTit">Blackmores澳佳宝月见草油胶囊190粒<a class="aTit" target="_blank" title="" href="goods.php?id=33"></a> </p>
+          <p class="productPrice"> 
+             
+          100元          </p>
+           
+        </li>
+                <li class="clearfix "> <a href="goods.php?id=35" target="_blank" class="aImg" style="background: none rgb(255, 255, 255);"> <img width="100" height="100" border="0" src="images/201403/thumb_img/35_thumb_G_1395048834295.jpg" alt="德国EROS男性超强版延时喷剂 男用防早泄" title="德国EROS男性超强版延时喷剂 男用防早泄"></a>
+          <p class="productTit">德国EROS男性超强版延时喷剂 男用防早泄<a class="aTit" target="_blank" title="" href="goods.php?id=35"></a> </p>
+          <p class="productPrice"> 
+             
+          300元          </p>
+           
+        </li>
+                <li class="clearfix "> <a href="goods.php?id=36" target="_blank" class="aImg" style="background: none rgb(255, 255, 255);"> <img width="100" height="100" border="0" src="images/201403/thumb_img/36_thumb_G_1395048705196.jpg" alt="英国牛栏Cow&amp;Gatecowgate本土牛栏奶粉1段900克" title="英国牛栏Cow&amp;amp;Gatecowgate本土牛栏奶粉1段900克"></a>
+          <p class="productTit">英国牛栏Cow&amp;amp;Gatecowgate本土牛栏奶粉1段900克<a class="aTit" target="_blank" title="" href="goods.php?id=36"></a> </p>
+          <p class="productPrice"> 
+             
+          100元          </p>
+           
+        </li>
+                <li class="clearfix bbNone"> <a href="goods.php?id=42" target="_blank" class="aImg" style="background: none rgb(255, 255, 255);"> <img width="100" height="100" border="0" src="images/201403/thumb_img/42_thumb_G_1395048163276.jpg" alt="Jamieson健美生绿茶和苹果酸浓缩复合片90片" title="Jamieson健美生绿茶和苹果酸浓缩复合片90片"></a>
+          <p class="productTit">Jamieson健美生绿茶和苹果酸浓缩复合片90片<a class="aTit" target="_blank" title="" href="goods.php?id=42"></a> </p>
+          <p class="productPrice"> 
+             
+          20元          </p>
+           
+        </li>
+              </ul>
+    </div>
+         
+    <div class="sideGrayBox mt10">
+      <h4>购买<span class="c_ec2b00">我</span>的用户还买了</h4>
+      <ul class="userBuyView">
+                <li class="clearfix "> <a href="goods.php?id=22" target="_blank" class="aImg" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;"> <img width="100" height="100" border="0" lazyload="images/201403/thumb_img/22_thumb_G_1395110106656.jpg" src="themes/68ecshop_wangyibaojian/images/blank.gif" alt="NUTRIVITA好唯他女性每日营养片100粒" title="NUTRIVITA好唯他女性每日营养片100粒"></a>
+          <p class="productTit">NUTRIVITA好唯他女性每日营养片100粒<a class="aTit" target="_blank" title="NUTRIVITA好唯他女性每日营养片100粒" href="goods.php?id=22"></a> </p>
+          <p class="productPrice"> 
+             
+          5999元          </p>
+           
+        </li>
+                <li class="clearfix "> <a href="goods.php?id=13" target="_blank" class="aImg" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;"> <img width="100" height="100" border="0" lazyload="images/201403/thumb_img/13_thumb_G_1395110684913.jpg" src="themes/68ecshop_wangyibaojian/images/blank.gif" alt="善存小佳维咀嚼片（香甜柠檬）组合80片*2瓶" title="善存小佳维咀嚼片（香甜柠檬）组合80片*2瓶"></a>
+          <p class="productTit">善存小佳维咀嚼片（香甜柠檬）组合80片*2瓶<a class="aTit" target="_blank" title="善存小佳维咀嚼片（香甜柠檬）组合80片*2瓶" href="goods.php?id=13"></a> </p>
+          <p class="productPrice"> 
+             
+            1100元</p>
+          <p> <span class="actLabel " title="">促</span> </p>
+           
+        </li>
+                <li class="clearfix "> <a href="goods.php?id=7" target="_blank" class="aImg" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;"> <img width="100" height="100" border="0" lazyload="images/200905/thumb_img/7_thumb_G_1241422785492.jpg" src="themes/68ecshop_wangyibaojian/images/blank.gif" alt="仿网易保健品模板测试商品17" title="仿网易保健品模板测试商品17"></a>
+          <p class="productTit">仿网易保健品模板测试商品17<a class="aTit" target="_blank" title="仿网易保健品模板测试商品17" href="goods.php?id=7"></a> </p>
+          <p class="productPrice"> 
+             
+          100元          </p>
+           
+        </li>
+                <li class="clearfix "> <a href="goods.php?id=32" target="_blank" class="aImg" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;"> <img width="100" height="100" border="0" lazyload="images/201403/thumb_img/32_thumb_G_1395109231183.jpg" src="themes/68ecshop_wangyibaojian/images/blank.gif" alt="澳罗拉月见草油复合营养软胶囊60粒" title="澳罗拉月见草油复合营养软胶囊60粒"></a>
+          <p class="productTit">澳罗拉月见草油复合营养软胶囊60粒<a class="aTit" target="_blank" title="澳罗拉月见草油复合营养软胶囊60粒" href="goods.php?id=32"></a> </p>
+          <p class="productPrice"> 
+             
+          3010元          </p>
+           
+        </li>
+                <li class="clearfix "> <a href="goods.php?id=51" target="_blank" class="aImg" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;"> <img width="100" height="100" border="0" lazyload="images/201403/thumb_img/51_thumb_G_1395047537284.jpg" src="themes/68ecshop_wangyibaojian/images/blank.gif" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" title="GNC健安喜深海鱼油软胶囊（全网销量NO.1）"></a>
+          <p class="productTit">GNC健安喜深海鱼油软胶囊（全网销量NO.1）<a class="aTit" target="_blank" title="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" href="goods.php?id=51"></a> </p>
+          <p class="productPrice"> 
+             
+          41元          </p>
+           
+        </li>
+                <li class="clearfix bbNone"> <a href="goods.php?id=39" target="_blank" class="aImg" style="background-image: none; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;"> <img width="100" height="100" border="0" lazyload="images/201403/thumb_img/39_thumb_G_1395048420704.jpg" src="themes/68ecshop_wangyibaojian/images/blank.gif" alt="美澳健胶原蛋白粉" title="美澳健胶原蛋白粉"></a>
+          <p class="productTit">美澳健胶原蛋白粉<a class="aTit" target="_blank" title="美澳健胶原蛋白粉" href="goods.php?id=39"></a> </p>
+          <p class="productPrice"> 
+             
+          200元          </p>
+           
+        </li>
+                
+      </ul>
+    </div>
+  </div>
+  <div class="goodsDetailWrap"> 
+<script type="text/javascript">
+function check(){
+var result='37,';
+var fid = document.getElementById('boxOne');
+var box = fid.getElementsByTagName('input');
+for(var i = 0; i < box.length; i++){
+           if(box[i].type == 'checkbox' && box[i].checked){
+                result = result + box[i].value + ',';
+           }
+        }
+        //在Common.js文件中添加了addToCartNums方法
+        addToCartNums(result);
+}
+function totalPrice(){
+var result=Math.round(189.00);
+var fid = document.getElementById('boxOne');
+var box = fid.getElementsByTagName('input');
+for(var i = 0; i < box.length; i++){
+   if(box[i].type == 'checkbox' && box[i].checked){
+        var a = box[i].name;
+        var re = /[￥元]/g;
+    result =  Number(result) +  Number(a.replace(re, ''));
+   }
+}
+result_format='￥%s元';
+re_re=/\%s/g;
+result_format=result_format.replace(re_re, result);
+document.getElementById("totalPrice").innerHTML=result_format;
+}
+</script>
+    <div class="P_nav" id="P_nav"> <span class="active" id="goodsDetail_T" onclick="location.href='#goodsDetail';">产品详情</span> <span id="packServe_T" class="" onclick="location.href='#packServe';">包装服务</span> <span id="userRating_T" class="" onclick="location.href='#userRating';">用户评价<em>(<b id="commentCounts" class="commentCount v1 v0">7</b>)</em></span> <span id="goodsQA_T" class="" onclick="location.href='#goodsQA';">售后保障</span> <a class="aAddCart" style="display: none; float: right; margin-top: 2px;" href="javascript:;" onclick="javascript:addToCart(37)">加入购物车</a><a class="aBuyBtn mr10" style="display: none; float: right; margin-top: 2px;" href="javascript:addToCart1(37)">立即购买</a> </div>
+    <div class="correctTips">如发现商品描述存在问题，欢迎随时<a href="message.php" target="_blank">纠错</a></div>
+    <div id="goodsDetail" style="display: block;"><a name="articlepage"></a>
+      <h4 class="goodsParaTit mt10">产品参数</h4>
+      <ul class="goods_parameter">
+        <li class="ellipsis1">商品名称：Nutrilon荷兰牛栏荷兰</li>
+        <li class="ellipsis">商品编号：ECS000037</li>
+        <li class="ellipsis">商品品牌：<a href="brand.php?id=3">Natrol</a></li>
+        <li class="ellipsis1">上架时间：2012-04-08</li>
+        <li class="ellipsis">商品毛重：0克</li>
+        <li class="ellipsis">库存： 
+           
+          1973  
+           
+        </li>
+      </ul>
+      <div class="mt10 desc_iframe"> <p><img alt="" width="750" height="468" src="/ec272cn/utf/quwan_sj/images/upload/Image/26271_01.jpg"></p>
+<p><img alt="" width="750" height="726" src="/ec272cn/utf/quwan_sj/images/upload/Image/26271_02.jpg"></p>
+<p><img alt="" width="750" height="361" src="/ec272cn/utf/quwan_sj/images/upload/Image/26271_03.jpg"></p> </div>
+    </div>
+    <div id="packServe" style="display: block;">      <h3 class="goodsHTit packing">包装</h3>
+      <div class="tc"><img src="themes/68ecshop_wangyibaojian/images/package/packingBg.jpg"></div>
+      <div class="goodsTxt">所有纸箱、塑料袋等标有“吉晟健康食品”的外包装均由网易保健品为您免费提供，我们会根据您所购商品的具体尺寸提供相应的完整包装，保证您所购商品在投递的过程中完好无损。</div>
+      <h3 class="goodsHTit sevice">服务</h3>
+      <div class="tc"><img src="themes/68ecshop_wangyibaojian/images/package/seviceBg.jpg"></div>
+      <div class="goodsTxt">吉晟保健食品向您保证所售商品均为正品，我们旨在用线上的细心服务为您带来超越线下的购物体验和同质商品。吉晟保健食品为您提供全场包邮的服务，所有商品均由我们合作的物流公司代为投递，为保证物流质量和速度，我们已经与国内的多家知名物流公司建立合作，保证您所购买的商品顺利投递到您的手中。
+        但由于保健食品品自身的特殊性，根据国家相关法律规定，一经售出非质量问题概不退换货。如确有质量问题，我们会免费为您退换货。退换货有效期为七天，请您尽快确认，逾期恕不退换。</div>
+      <div class="goodsTxt">注：吉晟保健食品会保证所售商品信息的及时有效，但不排除厂家在没有任何提前通知的情况下更改产品包装、产地或者一些附件，如遇修改产生的用户收到货物与网易保健品图片、产地、说明不完全一致，请您谅解。但我们能确保为原厂正品，并与当前市场同一商品的主流新品一致。</div> </div>
+    <div id="userRating" style="display: block;">
+      <h3 class="goodsHTit comment">用户评价</h3>
+      <div id="ECS_COMMENT"> <div class="commWrap"> 
+   
+    <dl class="eachInfo clearfix">
+    <dt class="c_888"> 
+      skyems</dt>
+    <dd>
+      <ul class="commItem">
+        <li class="starLi clearfix"><span class="c_666">评　　价：</span><span><img src="themes/68ecshop_wangyibaojian/images/stars5.gif" width="78" height="15" alt="5"></span><em class="c_888 fr">2016-03-18 14:25:43</em>
+    <br><br><br>
+    好！确实好！    </li>
+               </ul>
+    </dd>
+  </dl>
+    <dl class="eachInfo clearfix">
+    <dt class="c_888"> 
+      smile</dt>
+    <dd>
+      <ul class="commItem">
+        <li class="starLi clearfix"><span class="c_666">评　　价：</span><span><img src="themes/68ecshop_wangyibaojian/images/stars1.gif" width="78" height="15" alt="1"></span><em class="c_888 fr">2016-03-18 14:01:02</em>
+    <br><br><br>
+    差评差评chaping     </li>
+               </ul>
+    </dd>
+  </dl>
+    <dl class="eachInfo clearfix">
+    <dt class="c_888"> 
+      勤奋的安全哥</dt>
+    <dd>
+      <ul class="commItem">
+        <li class="starLi clearfix"><span class="c_666">评　　价：</span><span><img src="themes/68ecshop_wangyibaojian/images/stars5.gif" width="78" height="15" alt="5"></span><em class="c_888 fr">2016-03-18 13:35:01</em>
+    <br><br><br>
+    523<br>
+4165546   </li>
+               </ul>
+    </dd>
+  </dl>
+    <dl class="eachInfo clearfix">
+    <dt class="c_888"> 
+      63bang</dt>
+    <dd>
+      <ul class="commItem">
+        <li class="starLi clearfix"><span class="c_666">评　　价：</span><span><img src="themes/68ecshop_wangyibaojian/images/stars5.gif" width="78" height="15" alt="5"></span><em class="c_888 fr">2016-03-18 11:03:00</em>
+    <br><br><br>
+    沃尔沃   </li>
+               </ul>
+    </dd>
+  </dl>
+    <dl class="eachInfo clearfix">
+    <dt class="c_888"> 
+      63bang</dt>
+    <dd>
+      <ul class="commItem">
+        <li class="starLi clearfix"><span class="c_666">评　　价：</span><span><img src="themes/68ecshop_wangyibaojian/images/stars5.gif" width="78" height="15" alt="5"></span><em class="c_888 fr">2016-03-18 11:02:26</em>
+    <br><br><br>
+    不错 不错！    </li>
+               </ul>
+    </dd>
+  </dl>
+   
+   
+</div>
+  <div class="bd">
+  <div class="blank"></div>
+    <div class="xm-pagenavi" id="commentPages">
+      <div id="pagebar" class="f_r">
+        <form name="selectPageForm" action="/goods.php" method="get">
+                    <div id="pager"> 总计 7 个记录，共 2 页。 <span> <a href="javascript:gotoPage(1,37,0)">第一页</a> <a href="javascript:;">上一页</a> <a href="javascript:gotoPage(2,37,0)">下一页</a> <a href="javascript:gotoPage(2,37,0)">最末页</a> </span> 
+             
+          </div>
+                  </form>
+        <script type="Text/Javascript" language="JavaScript">
+        <!--
+        
+        function selectPage(sel)
+        {
+          sel.form.submit();
+        }
+        
+        //-->
+        </script> 
+      </div>
+    </div>
+    <div class="clearbox" style="height:5px; line-height:5px; "></div>
+    <div class="commentsList">
+      <form action="javascript:;" onsubmit="submitComment(this)" method="post" name="commentForm" id="commentForm">
+        <table border="0" cellspacing="5" cellpadding="0" style="font-size:12px;">
+          <tbody><tr>
+            <td align="right">用户名：</td>
+            <td>匿名用户</td>
+          </tr>
+          <tr>
+            <td align="right">E-mail：</td>
+            <td><input type="text" name="email" id="email" maxlength="100" value="" class="inputBorder"></td>
+          </tr>
+          <tr>
+            <td align="right">评价等级：</td>
+            <td><input name="comment_rank" type="radio" value="1" id="comment_rank1">
+              <img src="themes/68ecshop_wangyibaojian/images/stars1.gif">
+              <input name="comment_rank" type="radio" value="2" id="comment_rank2">
+              <img src="themes/68ecshop_wangyibaojian/images/stars2.gif">
+              <input name="comment_rank" type="radio" value="3" id="comment_rank3">
+              <img src="themes/68ecshop_wangyibaojian/images/stars3.gif">
+              <input name="comment_rank" type="radio" value="4" id="comment_rank4">
+              <img src="themes/68ecshop_wangyibaojian/images/stars4.gif">
+              <input name="comment_rank" type="radio" value="5" checked="checked" id="comment_rank5">
+              <img src="themes/68ecshop_wangyibaojian/images/stars5.gif"></td>
+          </tr>
+          <tr>
+            <td align="right" valign="top">评论内容：</td>
+            <td><textarea name="content" class="inputBorder" style="height:100px; width:700px;"></textarea>
+              <input type="hidden" name="cmt_type" value="0">
+              <input type="hidden" name="id" value="37"></td>
+          </tr>
+                    <tr>
+            <td colspan="2">
+              <div style="background: none rgb(255, 255, 255);"><span class="comment_yzma"> 验证码：</span>
+                <input type="text" name="captcha" class="inputBorder" style="width:50px; margin-top:6px;">
+                <img src="captcha.php?1102751273" alt="captcha" onclick="this.src='captcha.php?'+Math.random()" class="captcha"> </div>
+              </td>
+          </tr>
+                      <tr>
+            <td colspan="2" style="text-align:center">
+            <input name="" type="submit" value="提交评论" class="comment_sub" style="margin:0 auto;"> </td>
+           </tr>
+        </tbody></table>
+      </form>
+    </div>
+  </div>
+
+<script type="text/javascript">
+//<![CDATA[
+var cmt_empty_username = "请输入您的用户名称";
+var cmt_empty_email = "请输入您的电子邮件地址";
+var cmt_error_email = "电子邮件地址格式不正确";
+var cmt_empty_content = "您没有输入评论的内容";
+var captcha_not_null = "验证码不能为空!";
+var cmt_invalid_comments = "无效的评论内容!";
+
+/**
+ * 提交评论信息
+*/
+function submitComment(frm)
+{
+  var cmt = new Object;
+
+  //cmt.username        = frm.elements['username'].value;
+  cmt.email           = frm.elements['email'].value;
+  cmt.content         = frm.elements['content'].value;
+  cmt.type            = frm.elements['cmt_type'].value;
+  cmt.id              = frm.elements['id'].value;
+  cmt.enabled_captcha = frm.elements['enabled_captcha'] ? frm.elements['enabled_captcha'].value : '0';
+  cmt.captcha         = frm.elements['captcha'] ? frm.elements['captcha'].value : '';
+  cmt.rank            = 0;
+
+  for (i = 0; i < frm.elements['comment_rank'].length; i++)
+  {
+    if (frm.elements['comment_rank'][i].checked)
+    {
+       cmt.rank = frm.elements['comment_rank'][i].value;
+     }
+  }
+
+//  if (cmt.username.length == 0)
+//  {
+//     alert(cmt_empty_username);
+//     return false;
+//  }
+
+  if (cmt.email.length > 0)
+  {
+     if (!(Utils.isEmail(cmt.email)))
+     {
+        alert(cmt_error_email);
+        return false;
+      }
+   }
+   else
+   {
+        alert(cmt_empty_email);
+        return false;
+   }
+
+   if (cmt.content.length == 0)
+   {
+      alert(cmt_empty_content);
+      return false;
+   }
+
+   if (cmt.enabled_captcha > 0 && cmt.captcha.length == 0 )
+   {
+      alert(captcha_not_null);
+      return false;
+   }
+
+   Ajax.call('comment.php', 'cmt=' + $.toJSON(cmt), commentResponse, 'POST', 'JSON');
+   return false;
+}
+
+/**
+ * 处理提交评论的反馈信息
+*/
+  function commentResponse(result)
+  {
+    if (result.message)
+    {
+      alert(result.message);
+    }
+
+    if (result.error == 0)
+    {
+      var layer = document.getElementById('ECS_COMMENT');
+
+      if (layer)
+      {
+        layer.innerHTML = result.content;
+      }
+    }
+  }
+
+//]]>
+</script></div>
+ </div>
+    <div id="goodsQA" class="goodsQA" style="display: block;"> <h3 class="goodsHTit zixunTit">售后保障</h3>
+<div class="tc"><img src="themes/68ecshop_wangyibaojian/images/package/seviceBg.jpg"></div>
+<div class="goodsTxt mt10" style="width:900px; padding:0 5px">四川吉晟向您保证所售商品均为正品，我们旨在用线上的细心服务为您带来超越线下的购物体验和同质商品。吉晟健康食品为您提供全场包邮的服务，所有商品均由我们合作的物流公司代为投递，为保证物流质量和速度，我们已经与国内的多家知名物流公司建立合作，保证您所购买的商品顺利投递到您的手中。
+        但由于保健食品自身的特殊性，根据国家相关法律规定，一经售出非质量问题概不退换货。如确有质量问题，我们会免费为您退换货。退换货有效期为七天，请您尽快确认，逾期恕不退换。</div>
+<div class="goodsTxt mt10" style="width:900px; padding:0 5px">注：吉晟健康食品会保证所售商品信息的及时有效，但不排除厂家在没有任何提前通知的情况下更改产品包装、产地或者一些附件，如遇修改产生的用户收到货物与吉晟健康食品图片、产地、说明不完全一致，请您谅解。但我们能确保为原厂正品，并与当前市场同一商品的主流新品一致。</div> </div>
+  </div>
+  </div>
+</article>
+<%= javascript_include_tag '/fjs/orderCore', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/fjs/bhistroyforPro', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag '/fjs/product', 'data-turbolinks-track' => true %>
+<script>Core && Core.quickInit && Core.quickInit();</script> 

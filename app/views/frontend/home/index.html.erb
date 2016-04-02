@@ -186,11 +186,30 @@ var DifferSecond = -1;
           </div>
         </div>
       </div>
+      <div class="subTabWrap clearfix">
+        <% @category_hash[category][0..3].each_with_index do |sub_hash, sub_index| %>
+          <div id="subType<%= sub_hash.keys.first.id %>" class="subcategoryGoods clearfix">
+            <div class="productsView clearfix">
+              <% sub_hash.keys.first.products.each do |p| %>
+                <div class="product pro0"> <span class="introDetailBg" style="opacity: 0;"></span>
+                  <%= link_to "<em></em><span>#{p.memo}</span>".html_safe, frontend_product_path(p), :class=>"introDetail" %>
+                  <a href="goods.php?id=51" target="_blank" class="productImg" style="background: none rgb(255, 255, 255);"><img width="170" height="170" border="0" src="images/201403/thumb_img/51_thumb_G_1395047537284.jpg" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" title="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" style="opacity: 1;"></a>
+                <p class="introduceTit"><%= p.short_description %></p>
+                <p class="productTit"><%= link_to p.name, frontend_product_path(p) %></p>
+                <p class="productPrice clearfix"> 
+                <span class="c_ec2b00"><%= p.price %>元</span>
+                <del><%= p.market_price %>元</del> </p>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <% end %>
 </article>
-<div class="zoneFloatNav" style="display: none; margin-right:-681px;">
+<div class="zoneFloatNav" style="display: none;">
 <% @category_hash.keys.each_with_index do |category, index| %>
 <a href="javascript:;" class="nav<%= index + 1 %>"><%= category.name %></a>
 <% end %>
