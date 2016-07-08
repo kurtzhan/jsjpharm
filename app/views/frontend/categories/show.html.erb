@@ -49,12 +49,12 @@
             </div>
             <div class="aa-product-catg-body">
               <ul class="aa-product-catg list">
-                <% @category.products.each do |p| %>
+                <% @products.each do |p| %>
                 <!-- start single product item -->
                 <li>
                   <figure>
                     <%= link_to image_tag("/frontend/img/women/girl-1.png"), frontend_product_path(p.id), :class => "aa-product-img" %>
-                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>加入购物车</a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#"><%= p.name %></a></h4>
                       <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
@@ -186,13 +186,9 @@
             <div class="aa-sidebar-widget">
               <h3>标签</h3>
               <div class="tag-cloud">
-                <a href="#">Fashion</a>
-                <a href="#">Ecommerce</a>
-                <a href="#">Shop</a>
-                <a href="#">Hand Bag</a>
-                <a href="#">Laptop</a>
-                <a href="#">Head Phone</a>
-                <a href="#">Pen Drive</a>
+                <% @tags.uniq.each do |tag| %>
+                  <%= link_to tag.name, frontend_category_path(@category.id, :tag => tag.name), :class => tag.name == params[:tag] ? "active" : "" %>
+                <% end %>
               </div>
             </div>
             <!-- single sidebar -->

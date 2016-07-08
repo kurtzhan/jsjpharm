@@ -175,7 +175,7 @@ h2 {
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a:hover, #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-catg-nav li a:focus {
   color: #3fc35f;
 }
-#aa-product-category .aa-sidebar .aa-sidebar-widget .tag-cloud a:hover, #aa-product-category .aa-sidebar .aa-sidebar-widget .tag-cloud a:focus {
+#aa-product-category .aa-sidebar .aa-sidebar-widget .tag-cloud a:hover, #aa-product-category .aa-sidebar .aa-sidebar-widget .tag-cloud a:focus, #aa-product-category .aa-sidebar .aa-sidebar-widget .tag-cloud .active{
   background-color: #3fc35f;
 }
 #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-recently-views ul li .aa-cartbox-info h4 a:hover, #aa-product-category .aa-sidebar .aa-sidebar-widget .aa-recently-views ul li .aa-cartbox-info h4 a:focus {
