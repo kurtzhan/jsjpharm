@@ -1,6 +1,4 @@
 class Frontend::CategoriesController < Frontend::ApplicationController
-  layout 'category'
-  
   def index
   end
 

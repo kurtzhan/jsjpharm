@@ -1,217 +1,76 @@
-<%= javascript_include_tag '/fjs/easyCore', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag '/fjs/js_index', 'data-turbolinks-track' => true %>
-<article class="topBgWrap clearfix">
-  
-<div class="fleft categorysBox mr10">
-
-  <%= render :partial => 'frontend/shared/category_menu', :locals => {:display => true, :from_header => false} %>
-  </div>  <div class="fleft imgBox mr10">
-  	<section id="picBox" class="sliderBox">
-        <ul id="show_pic">
-         
-            <li style="opacity: 0; z-index: 9;"><a target="_blank" href="http://www.68ecshop.com" style="background: none rgb(255, 255, 255);">
-            <img imageurl="data/afficheimg/20140314dgfivz.jpg" imageurlsmall="data/afficheimg/20140314dgfivz.jpg" title="" alt="" src="/images/20140314dgfivz.jpg" border="0"></a></li>
-         
-            <li style="opacity: 0; z-index: 9;"><a target="_blank" href="http://" style="background: none rgb(255, 255, 255);">
-            <img imageurl="data/afficheimg/20140220dtaqbx.jpg" imageurlsmall="data/afficheimg/20140220dtaqbx.jpg" title="" alt="" src="/images/20140220dtaqbx.jpg" border="0"></a></li>
-         
-            <li style="opacity: 0; z-index: 9;"><a target="_blank" href="http://" style="background: none rgb(255, 255, 255);">
-            <img imageurl="data/afficheimg/20140220dkxibt.jpg" imageurlsmall="data/afficheimg/20140220dkxibt.jpg" title="" alt="" src="/images/20140220dkxibt.jpg" border="0"></a></li>
-         
-            <li style="opacity: 1; z-index: 10;"><a target="_blank" href="http://www.68ecshop.com" style="background: none rgb(255, 255, 255);">
-            <img imageurl="data/afficheimg/20140220xqrzaa.jpg" imageurlsmall="data/afficheimg/20140220xqrzaa.jpg" title="" alt="" src="/images/20140220xqrzaa.jpg" border="0"></a></li>
-         
-        </ul>
-    <div class="img_pagebox" style="z-index: 11;"><div class="img_page"><div id="icon_num" class="pageBox">
-        <a href="javascript:;" class="active"></a>
-        <a href="javascript:;" class=""></a>
-        <a href="javascript:;"></a>
-        <a href="javascript:;"></a>
-     
-    </div></div></div>
-<div class="img_pagebox" style="z-index: 11;"><div class="img_page"><div id="icon_num" class="pageBox"><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a></div></div></div></section>
-     <section class="bannerBox">
-<div class="banner1">
-    
-<a href="affiche.php?ad_id=104&amp;uri=" target="_blank"><img src="data/afficheimg/1392884539732990774.jpg" width="230" height="120" border="0"></a>
-</div>
-    
-<a href="affiche.php?ad_id=95&amp;uri=http%3A%2F%2Fec68.com" target="_blank"><img src="data/afficheimg/1392884533525877914.jpg" width="230" height="120" border="0"></a>
-    
-<a href="affiche.php?ad_id=92&amp;uri=http%3A%2F%2Fec68.com" target="_blank"><img src="data/afficheimg/1392884528210666976.jpg" width="230" height="120" border="0"></a>
-  </section>
-  </div>
-  <div class="fright inforBox">
-    <p class="freeBox"><span class="hide">全场免运费100%正品假一赔三</span></p>
-    <dl class="newsBox">
-     
-<dt>公告</dt>
-<dd>
-<h4 class="ellipsis"><a href="article.php?id=33" target="_blank">小米手机2合约版</a></h4>
-<h4 class="ellipsis"><a href="article.php?id=32" target="_blank">UC用户特权专场</a></h4>
-<h4 class="ellipsis"><a href="article.php?id=34" target="_blank">全场特价进行中“沃”的世界我做主</a></h4>
-</dd>
-    </dl>
-    <dl class="healthBox">
-      <dt><a href="" target="_blank">进入我的测试中心</a></dt>
-      <dd class="clearfix">  
-      <a href="" target="_blank"><span class="icon icon1"></span><span>中医体质测试</span></a>
-  	  <a href="" target="_blank"><span class="icon icon2"></span><span>糖尿病风险</span></a>
-  	  <a href="" target="_blank" class="last"><span class="icon icon3"></span><span>亚健康测试</span></a>
-	</dd>
-    </dl>
-  </div>
-</article>
-<article class="recommendWrap">
-  <section class="slidGoodsBox clearfix" id="recommendBox">
-    <% tags = ["惊爆特价", "店长推荐", "新品尝鲜", "热销爆款"] %>
-    <ul class="slidGoodsType clearfix">
-      <% tags.each_with_index do |tag, index| %>
-        <li rel="#slidGoods<%= index %>" class="li<%= index %><%= index == 0 ? ' active' : '' %>"><%= tag %></li>
-      <% end %>
-    </ul>
-    <% tags.each_with_index do |tag, index| %>
-    <div id="slidGoods<%= index %>" class="slidGoodsWrap"> <a style="display: inline;" href="javascript:;" class="slidGoodsViewL"></a><a style="display: inline;" href="javascript:;" class="slidGoodsViewR"></a>
-      <div class="slidGoodsViewBox">
-        <div class="slidGoodsViewScroll">
-          <div class="productsView clearfix">
-              <% Product.tagged_with(tag).each do |product| %>
-              <div class="product"> <span class="introDetailBg"></span>
-              <%= link_to "<em></em><span>#{product.memo}</span>".html_safe, frontend_product_path(product), :class => "introDetail" %>
-              <%= link_to image_tag("test.jpg", :size => "200x200"), frontend_product_path(product) %>
-              <p class="introduceTit"><%= product.short_description %></p>
-              <p class="productTit"><%= link_to product.name, frontend_product_path(product) %></p>
-              <p class="productPrice"><span><%= product.price %>元</span>&nbsp;<del><%= product.market_price %>元</del></p>
-              <p class="productActLink"> </p>
-            </div>
-             <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  </section>
-<script>
-var Tday = new Array();
-var daysms = 24 * 60 * 60 * 1000;
-var hoursms = 60 * 60 * 1000;
-var Secondms = 60 * 1000;
-var microsecond = 1000;
-var DifferHour = -1;
-var DifferMinute = -1;
-var DifferSecond = -1;
-  function clock(key)
-  {
-   var time = new Date();
-   var hour = time.getHours();
-   var minute = time.getMinutes();
-   var second = time.getSeconds();
-   var timevalue = ""+((hour > 12) ? hour-12:hour);
-   timevalue +=((minute < 10) ? ":0":":")+minute;
-   timevalue +=((second < 10) ? ":0":":")+second;
-   timevalue +=((hour > 12 ) ? " PM":" AM");
-   var convertHour = DifferHour;
-   var convertMinute = DifferMinute;
-   var convertSecond = DifferSecond;
-   var Diffms = Tday[key].getTime() - time.getTime();
-   DifferHour = Math.floor(Diffms / daysms);
-   Diffms -= DifferHour * daysms;
-   DifferMinute = Math.floor(Diffms / hoursms);
-   Diffms -= DifferMinute * hoursms;
-   DifferSecond = Math.floor(Diffms / Secondms);
-   Diffms -= DifferSecond * Secondms;
-   var dSecs = Math.floor(Diffms / microsecond);
-   
-   if(convertHour != DifferHour) a="剩余<font style='color:#5a8800'>"+DifferHour+"</font>天";
-   if(convertMinute != DifferMinute) b="<font  style='color:#5a8800'>"+DifferMinute+"</font>时";
-   if(convertSecond != DifferSecond) c="<font  style='color:#5a8800'>"+DifferSecond+"</font>分";
-     d="<font  style='color:#5a8800'>"+dSecs+"</font>秒";
-     if (DifferHour>0) {a=a} 
-     else {a=''}
-   document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
-  
-  }
-</script>
-<div class="tuanBlock clearfix">
-  <h3>当季爆款</h3>
-      <dl class="clearfix">
-    <dt>
-      <p id="leftTime0" class="timerInfo">剩余<font style="color:#5a8800">1450</font>天<font style="color:#5a8800">18</font>时<font style="color:#5a8800">7</font>分<font style="color:#5a8800">25</font>秒</p>
-      <a target="_blank" title="Nutrilon荷兰牛栏荷兰" class="proImg" href="goods.php?id=37"><img border="0" width="200" height="200" alt="Nutrilon荷兰牛栏荷兰" src="images/201403/thumb_img/37_thumb_G_1395048568287.jpg"><span class="discountIcon"><span class="discountText"><strong>9.5</strong>折</span></span></a> </dt>
-    <dd>
-      <p class="productTit"><a target="_blank" href="goods.php?id=37" title="Nutrilon荷兰牛栏荷兰">Nutrilon荷兰牛栏荷兰</a></p>
-      <div class="btmBox clearfix">
-        <div class="fleft"> <span class="price">189元</span>&nbsp;
-          已售<span class="c_ec2b00">25</span>件 </div>
-        <a class="btn" href="goods.php?id=37" target="_blank">去抢购</a> </div>
-    </dd>
-  </dl>
-    <script>
-  Tday[0] = new Date("Mar 18, 2017 08:00:00");
-  window.setInterval(function()     
-  {clock(0);}, 1000);     
-  </script>
-</div>
-</article>
-<div class="clearbox"></div>
-<article class="mainWrap" style="width:1200px;">
-  <% @category_hash.keys.each_with_index do |category, index| %>
-  <div class="zoneGoodsArea zone<%= index %>">
-    <dl class="zoneGoodsTop clearfix">
-      <dt class="zoneTit0">
-        <%= link_to "", frontend_category_path(category) %>
-      </dt>
-      <dd class="clearfix">
-        <ul class="subTypeUL clearfix">
-        <% @category_hash[category][0..3].each_with_index do |sub_hash, sub_index| %>
-          <li class="li0<%= sub_index == 0 ? ' active' : '' %>" rel="#subType<%= sub_hash.keys.first.id %>">
-          <%= sub_hash.keys.first.name %>
-          <em class="crusp"></em>
-          </li>
-        <% end %>
-        </ul>
-      </dd>
-    </dl>
-    <div class="zoneGoodsMain clearfix">
-      <div class="product fixPro">
-        <a href="affiche.php?ad_id=107&amp;uri=http://ec68.com" target="_blank" class="productImg" style="background: none rgb(255, 255, 255);">
-          <img width="228" height="420" border="0" src="data/afficheimg/1393480451.jpg">
-        </a>
-        <div class="linksWrap">
-          <div class="typesWrap clearfix">
-          <% @category_hash[category].each do |sub_hash| %>
-          <span class="link"><%= link_to sub_hash.keys.first.name, frontend_category_path(sub_hash.keys.first.id), :class=>"highLight0" %></span>
-          <% end %>
-          <%= link_to "更多#{category.name}分类", frontend_category_path(category), :class => "moreTypes" %>
-          </div>
-        </div>
-      </div>
-      <div class="subTabWrap clearfix">
-        <% @category_hash[category][0..3].each_with_index do |sub_hash, sub_index| %>
-          <div id="subType<%= sub_hash.keys.first.id %>" class="subcategoryGoods clearfix">
-            <div class="productsView clearfix">
-              <% sub_hash.keys.first.products.each do |p| %>
-                <div class="product pro0"> <span class="introDetailBg" style="opacity: 0;"></span>
-                  <%= link_to "<em></em><span>#{p.memo}</span>".html_safe, frontend_product_path(p), :class=>"introDetail" %>
-                  <a href="goods.php?id=51" target="_blank" class="productImg" style="background: none rgb(255, 255, 255);"><img width="170" height="170" border="0" src="images/201403/thumb_img/51_thumb_G_1395047537284.jpg" alt="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" title="GNC健安喜深海鱼油软胶囊（全网销量NO.1）" style="opacity: 1;"></a>
-                <p class="introduceTit"><%= p.short_description %></p>
-                <p class="productTit"><%= link_to p.name, frontend_product_path(p) %></p>
-                <p class="productPrice clearfix"> 
-                <span class="c_ec2b00"><%= p.price %>元</span>
-                <del><%= p.market_price %>元</del> </p>
+<section id="aa-slider">
+    <div class="aa-slider-area">
+      <div id="sequence" class="seq">
+        <div class="seq-screen">
+          <ul class="seq-canvas">
+            <!-- single slide item -->
+            <li>
+              <div class="seq-model">
+                <img data-seq src="/frontend/img/slider/1.jpg" alt="Men slide img" />
               </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+              <div class="seq-title">
+               <span data-seq>Save Up to 75% Off</span>                
+                <h2 data-seq>Men Collection</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->
+            <li>
+              <div class="seq-model">
+                <img data-seq src="/frontend/img/slider/2.jpg" alt="Wristwatch slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 40% Off</span>                
+                <h2 data-seq>Wristwatch Collection</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->
+            <li>
+              <div class="seq-model">
+                <img data-seq src="/frontend/img/slider/3.jpg" alt="Women Jeans slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 75% Off</span>                
+                <h2 data-seq>Jeans Collection</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->           
+            <li>
+              <div class="seq-model">
+                <img data-seq src="/frontend/img/slider/4.jpg" alt="Shoes slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 75% Off</span>                
+                <h2 data-seq>Exclusive Shoes</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->  
+             <li>
+              <div class="seq-model">
+                <img data-seq src="/frontend/img/slider/5.jpg" alt="Male Female slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 50% Off</span>                
+                <h2 data-seq>Best Collection</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>                   
+          </ul>
+        </div>
+        <!-- slider navigation btn -->
+        <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
+          <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
+          <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
+        </fieldset>
       </div>
     </div>
-  </div>
-  <% end %>
-</article>
-<div class="zoneFloatNav" style="display: none;">
-<% @category_hash.keys.each_with_index do |category, index| %>
-<a href="javascript:;" class="nav<%= index + 1 %>"><%= category.name %></a>
-<% end %>
-</div>
-<script>Core && Core.quickInit && Core.quickInit();</script>
+  </section>
+  <!-- / slider -->

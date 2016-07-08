@@ -1,6 +1,5 @@
 class Frontend::ProductsController < Frontend::ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:add_to_cart]
-  layout 'category'
   def show
     @product = Product.find(params[:id])
   end

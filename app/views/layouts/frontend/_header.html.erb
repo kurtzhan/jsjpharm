@@ -1,97 +1,200 @@
-  <nav id="topNav">
-  <div id="topNavWrap">
-    <div id="ECS_MEMBERZONE"><div id="append_parent"></div>
- 
-   <label>
-  您好
-  <% if current_user.nil? %>
-  ，欢迎光临本店！
-  <%= link_to "请登录", new_user_session_path %>
-  <%= link_to "免费注册", new_user_registration_path %>
-  <% else %>
-  , <%= current_user.email %>
-  <%= link_to "退出", destroy_user_session_path %>
-  <% end %>
-   </label>
-</div>
-    <ul id="topNavRight">
-      <li><a href="" target="_blank" rel="nofollow">我的订单</a>&nbsp;&nbsp;|</li>
-      <li><div class="mcDropMenuBox">
-        <a class="topNavHolder" target="_blank" href="" rel="nofollow">个人中心<i></i></a><b class="holderLine">|</b>
-        <div class="mcDropMenu">
-          <a class="clearfix" target="_blank" href="user.php?act=collection_list" rel="nofollow">我的收藏</a>
-          <a class="clearfix" target="_blank" href="user.php?act=message_list" rel="nofollow">我的留言</a>
-          <a class="clearfix" target="_blank" href="user.php?act=order_list" rel="nofollow">我的订单</a>
-          <a class="clearfix" target="_blank" href="user.php?act=bonus" rel="nofollow">我的红包</a>
-        </div>
-      </div></li> 
-            <li><a target="_blank" href="">帮助</a>&nbsp;&nbsp;|</li>
-            <li><a id="addFavBtn" href="javascript:;" target="_blank">收藏本站</a>&nbsp;&nbsp;|</li>                      
-      <li><div class="mcDropMenuBox focusNE">
-        <a class="topNavHolder" target="_blank" href="" rel="nofollow">关注我们<i></i></a>
-        <div class="mcDropMenu"><i class="line"></i>
-          <a class="clearfix" target="_blank" href="" rel="nofollow"><em class="xlwb"></em><span>新浪微博</span></a>
-          <a class="clearfix" target="_blank" href="" rel="nofollow"><em class="wywb"></em><span>网易微博</span></a>
-          <a class="clearfix" target="_blank" href="" rel="nofollow"><em class="txwb"></em><span>腾讯微博</span></a>
-        </div>
-      </div></li>            
-    </ul>
+<div id="wpf-loader-two">          
+  <div class="wpf-loader-two-inner">
+    <span>Loading</span>
   </div>
-</nav>
-<header id="docHead" class="">
-  <div class="fixedBg"></div>
-  <div id="docHeadWrap">
-    <div class="navCategorys hide">
-      <h2>
-        全部商品分类<span class="cusp"></span>
-      </h2>
-      <% if params[:controller] == "frontend/home" %>
-      <%= render :partial => 'frontend/shared/category_menu', :locals => {:display => false, :from_header => true} %>
-      <% end %>
-    </div>
-  <%= link_to "", root_path, :class => "logoLnk" %>
-    <div class="topSearchBox1 ownHotKeys1">
-    <form id="searchForm" name="searchForm" action="search.php" method="get" onsubmit="return checkSearchForm()">
-    <input id="keyword" name="keywords" class="sTxt c_999" type="text" value="">
-    <input class="sBtn1" type="submit" value="">
-    </form>
-    <ul class="suggestBox"></ul>
-    <div id="topHotKeys"><label>热门搜索：</label>
-                    <a href="search.php?keywords=%E5%87%8F%E8%82%A5">减肥</a>
-              <a href="search.php?keywords=%E6%B1%A4%E8%87%A3%E5%80%8D%E5%81%A5">汤臣倍健</a>
-              <a href="search.php?keywords=%E5%8F%B6%E9%85%B8">叶酸</a>
-              <a href="search.php?keywords=%E8%A7%A3%E6%95%91%E6%8A%A4%E8%82%9D">解救护肝</a>
-              <a href="search.php?keywords=%E8%A1%A5%E8%82%BE">补肾</a>
-                      </div>
-    </div>
-  <div id="ECS_CARTINFO" class="qq_jiesuan"><div class="shop"> <a class="miniCartBar"><span class="miniCartNum num0">0</span></a>
 </div>
-<div class="miniCartCon jiesuan_t">
-  <div class="cartNone">购物车是空的，赶快选购吧！<br>
-    如果已添加商品，请<a href="user.php?act=login" name="js_login">登录</a>查看</div>
-</div>
- 
-<script type="text/javascript">
-function deleteCartGoods(rec_id)
-{
-Ajax.call('delete_cart_goods.php', 'id='+rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
-}
+<a class="scrollToTop" href="#" style="display: none;"><i class="fa fa-chevron-up"></i></a>
+<header id="aa-header">
+    <!-- start header top  -->
+    <div class="aa-header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="aa-header-top-area">
+              <!-- start header top left -->
+              <div class="aa-header-top-left">
+                <!-- start language -->
+                <div class="aa-language">
+                  <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <img src="img/flag/english.jpg" alt="english flag">ENGLISH
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="#"><img src="img/flag/french.jpg" alt="">FRENCH</a></li>
+                      <li><a href="#"><img src="img/flag/english.jpg" alt="">ENGLISH</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- / language -->
 
-/**
- * 接收返回的信息
- */
-function deleteCartGoodsResponse(res)
-{
-  if (res.error)
-  {
-    alert(res.err_msg);
-  }
-  else
-  {
-      document.getElementById('ECS_CARTINFO').innerHTML = res.content;
-  }
-}
-</script> 
-</div>                                         
-  </div>
-</header>
+                <!-- start currency -->
+                <div class="aa-currency">
+                  <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-usd"></i>USD
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>
+                      <li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- / currency -->
+                <!-- start cellphone -->
+                <div class="cellphone hidden-xs">
+                  <p><span class="fa fa-phone"></span>00-62-658-658</p>
+                </div>
+                <!-- / cellphone -->
+              </div>
+              <!-- / header top left -->
+              <div class="aa-header-top-right">
+                <ul class="aa-head-top-nav-right">
+                  <li><a href="account.html">My Account</a></li>
+                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
+                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
+                  <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / header top  -->
+
+    <!-- start header bottom  -->
+    <div class="aa-header-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="aa-header-bottom-area">
+              <!-- logo  -->
+              <div class="aa-logo">
+                <!-- Text based logo -->
+                <a href="index.html">
+                  <span class="fa fa-shopping-cart"></span>
+                  <p>四川<strong>吉晟</strong> <span>全国健康直供平台</span></p>
+                </a>
+                <!-- img based logo -->
+                <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+              </div>
+              <!-- / logo  -->
+               <!-- cart box -->
+              <div class="aa-cartbox">
+                <a class="aa-cart-link" href="#">
+                  <span class="fa fa-shopping-basket"></span>
+                  <span class="aa-cart-title">SHOPPING CART</span>
+                  <span class="aa-cart-notify">2</span>
+                </a>
+                <div class="aa-cartbox-summary">
+                  <ul>
+                    <li>
+                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
+                      <div class="aa-cartbox-info">
+                        <h4><a href="#">Product Name</a></h4>
+                        <p>1 x $250</p>
+                      </div>
+                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
+                    </li>
+                    <li>
+                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
+                      <div class="aa-cartbox-info">
+                        <h4><a href="#">Product Name</a></h4>
+                        <p>1 x $250</p>
+                      </div>
+                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
+                    </li>                    
+                    <li>
+                      <span class="aa-cartbox-total-title">
+                        Total
+                      </span>
+                      <span class="aa-cartbox-total-price">
+                        $500
+                      </span>
+                    </li>
+                  </ul>
+                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                </div>
+              </div>
+              <!-- / cart box -->
+              <!-- search box -->
+              <div class="aa-search-box">
+                <form action="">
+                  <input type="text" name="" id="" placeholder="Search here ex. 'man' ">
+                  <button type="submit"><span class="fa fa-search"></span></button>
+                </form>
+              </div>
+              <!-- / search box -->             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / header bottom  -->
+  </header>
+  <section id="menu">
+    <div class="container">
+      <div class="menu-area">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>          
+          </div>
+          <div class="navbar-collapse collapse">
+            <!-- Left nav -->
+            <ul class="nav navbar-nav" data-smartmenus-id="14679456300153567">
+              <li><%= link_to "首页", root_path %></li>
+              <% @category_hash.keys.each do |top_category| %>
+              <li>
+                <% if @category_hash[top_category].length == 0 %>
+                <%= link_to top_category.name, frontend_category_path(top_category.id) %>
+                <% else %>
+                <%= link_to "#{top_category.name} <span class='caret'></span>".html_safe, frontend_category_path(top_category.id), :id => "tm-#{top_category.id}", :class => "has-submenu", "aria-haspopup" => true, "aria-controls" => "sm-#{top_category.id}", "aria-expanded" => "false" %>
+                  <ul class="dropdown-menu" id="sm-<%= top_category.id %>" role="group" aria-hidden="true" aria-labelledby="tm-<%= top_category.id %>" aria-expanded="false">
+                    <% @category_hash[top_category].each do |sub_hash| %>
+                    <li><%= link_to sub_hash.keys.first.name, frontend_category_path(sub_hash.keys.first.id) %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
+              </li>
+              <% end %>
+              <li><a href="#">Sports</a></li>
+             <li><a href="#" class="has-submenu" id="sm-14679456300153567-15" aria-haspopup="true" aria-controls="sm-14679456300153567-16" aria-expanded="false">Digital <span class="caret"></span></a>
+                <ul class="dropdown-menu" id="sm-14679456300153567-16" role="group" aria-hidden="true" aria-labelledby="sm-14679456300153567-15" aria-expanded="false">                
+                  <li><a href="#">Camera</a></li>
+                  <li><a href="#">Mobile</a></li>
+                  <li><a href="#">Tablet</a></li>
+                  <li><a href="#">Laptop</a></li>                                                
+                  <li><a href="#">Accesories</a></li>                
+                </ul>
+              </li>
+              <li><a href="#">Furniture</a></li>            
+              <li><a href="blog-archive.html" class="has-submenu" id="sm-14679456300153567-17" aria-haspopup="true" aria-controls="sm-14679456300153567-18" aria-expanded="false">Blog <span class="caret"></span></a>
+                <ul class="dropdown-menu" id="sm-14679456300153567-18" role="group" aria-hidden="true" aria-labelledby="sm-14679456300153567-17" aria-expanded="false">                
+                  <li><a href="blog-archive.html">Blog Style 1</a></li>
+                  <li><a href="blog-archive-2.html">Blog Style 2</a></li>
+                  <li><a href="blog-single.html">Blog Single</a></li>                
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#" class="has-submenu" id="sm-14679456300153567-19" aria-haspopup="true" aria-controls="sm-14679456300153567-20" aria-expanded="false">Pages <span class="caret"></span></a>
+                <ul class="dropdown-menu" id="sm-14679456300153567-20" role="group" aria-hidden="true" aria-labelledby="sm-14679456300153567-19" aria-expanded="false">                
+                  <li><a href="product.html">Shop Page</a></li>
+                  <li><a href="product-detail.html">Shop Single</a></li>                
+                  <li><a href="404.html">404 Page</a></li>                
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>       
+    </div>
+  </section>
