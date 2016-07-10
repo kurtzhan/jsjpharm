@@ -6,4 +6,6 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_member_grade_prices
 
   acts_as_taggable
+
+  paginates_per 5
 end

@@ -57,7 +57,8 @@
                     <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>加入购物车</a>
                     <figcaption>
                       <h4 class="aa-product-title"><a href="#"><%= p.name %></a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
+                      <span class="aa-product-price">¥<%= p.price %></span>
+                      <% if p.market_price %><span class="aa-product-price"><del>¥<%= p.market_price %></del></span><% end %>
                       <p class="aa-product-descrip">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam accusamus facere iusto, autem soluta amet sapiente ratione inventore nesciunt a, maxime quasi consectetur, rerum illum.</p>
                     </figcaption>
                   </figure>                         
@@ -148,7 +149,7 @@
               </div>
               <!-- / quick view modal -->   
             </div>
-            <div class="aa-product-catg-pagination">
+            <div class="aa-product-catg-pagination" style="display:none;">
               <nav>
                 <ul class="pagination">
                   <li>
@@ -168,6 +169,9 @@
                   </li>
                 </ul>
               </nav>
+            </div>
+            <div class="aa-product-catg-pagination">
+              <%= paginate @products, :window => 1%>
             </div>
           </div>
         </div>

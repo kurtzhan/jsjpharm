@@ -20,5 +20,7 @@ class Frontend::CategoriesController < Frontend::ApplicationController
     if params[:tag]
       @products = @products.tagged_with(params[:tag])
     end
+
+    @products = @products.page(params[:page])
   end
 end

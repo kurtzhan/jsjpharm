@@ -21,6 +21,7 @@ gem 'ckeditor'
 gem 'acts_as_commentable_with_threading'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'kaminari'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
