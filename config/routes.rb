@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   post '/products/add_to_cart' => 'frontend/products#add_to_cart'
   scope module: 'frontend', as: 'frontend' do
     resources :categories, only: [:show]
-    resources :products, only: [:show]
+    resources :products, only: [:show] do
+      resources :comments
+    end
     namespace :member do
       get '/' => 'home#index', as: :member_root
       resources :user_delivery_addresses

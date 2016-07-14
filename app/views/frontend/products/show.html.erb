@@ -111,8 +111,10 @@
                 </div>
                 <div class="tab-pane fade" id="review">
                  <div class="aa-product-review-area">
-                   <h4>2 Reviews for T-Shirt</h4> 
+                   <% root_comments = @product.root_comments.order("id desc") %>
+                   <h4><%= root_comments.count %> Reviews for <%= @product.name %></h4> 
                    <ul class="aa-review-nav">
+                     <% root_comments.each do |comment| %>
                      <li>
                         <div class="media">
                           <div class="media-left">
@@ -121,50 +123,19 @@
                             </a>
                           </div>
                           <div class="media-body">
-                            <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span></h4>
+                            <h4 class="media-heading"><strong><%= comment.name %></strong> &nbsp; <span><%= comment.created_at.strftime("%Y-%m-%d") %></span></h4>
                             <div class="aa-product-rating">
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star-o"></span>
+                              <input id="comment<%= comment.id %>" value="<%= comment.score %>" class="rating rating-loading" data-size="exs" data-show-clear="false" data-show-caption="false" data-readonly="true" data-min="0" data-max="5" data-step="0.5">
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p><%= comment.body %></p>
                           </div>
                         </div>
                       </li>
-                      <li>
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="#">
-                              <img class="media-object" src="img/testimonial-img-3.jpg" alt="girl image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span></h4>
-                            <div class="aa-product-rating">
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star-o"></span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                          </div>
-                        </div>
-                      </li>
+                      <% end %>
                    </ul>
                    <h4>Add a review</h4>
-                   <div class="aa-your-rating">
-                     <p>Your Rating</p>
-                     <a href="#"><span class="fa fa-star-o"></span></a>
-                     <a href="#"><span class="fa fa-star-o"></span></a>
-                     <a href="#"><span class="fa fa-star-o"></span></a>
-                     <a href="#"><span class="fa fa-star-o"></span></a>
-                     <a href="#"><span class="fa fa-star-o"></span></a>
-                   </div>
                    <!-- review form -->
-                   <form action="" class="aa-review-form">
+                   <form action="" class="aa-review-form" style="display:none">
                       <div class="form-group">
                         <label for="message">Your Review</label>
                         <textarea class="form-control" rows="3" id="message"></textarea>
@@ -180,6 +151,30 @@
 
                       <button type="submit" class="btn btn-default aa-review-submit">Submit</button>
                    </form>
+                   <%= form_for [:frontend, @product, @product.comment_threads.build], :html => {:class => "aa-review-form"} do |f| %>
+                     <div class="aa-your-rating">
+                       <p>Your Rating</p>
+                       <a href="#"><span class="fa fa-star-o"></span></a>
+                       <a href="#"><span class="fa fa-star-o"></span></a>
+                       <a href="#"><span class="fa fa-star-o"></span></a>
+                       <a href="#"><span class="fa fa-star-o"></span></a>
+                       <a href="#"><span class="fa fa-star-o"></span></a>
+                       <%= f.text_field :score, :class => "rating rating-loading", "data-size" => "xs", "data-show-clear" => "false" %>
+                     </div>
+                     <div class="form-group">
+                       <%= f.label :body %>
+                       <%= f.text_area :body, :class => "form-control", :rows => 3 %>
+                     </div>
+                     <div class="form-group">
+                       <%= f.label :name %>
+                       <%= f.text_field :name, :class => "form-control", :placeholder => "name" %>
+                     </div>
+                     <div class="form-group">
+                       <%= f.label :email %>
+                       <%= f.text_field :email, :class => "form-control", :placeholder => "email" %>
+                     </div>
+                     <%= f.submit 'Submit', :class => "btn btn-default aa-review-submit" %>
+                   <% end %>
                  </div>
                 </div>            
               </div>
@@ -189,3 +184,8 @@
       </div>
     </div>
   </section>
+  <script type="text/javascript">
+    $(document).on('ready', function(){
+      $('.rating').rating();
+    })
+  </script>
